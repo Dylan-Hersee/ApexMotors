@@ -45,28 +45,66 @@ export default {
 
     <div class="searchFilter">
       <form @submit="">
-        <input v-model="makeModel" type="text" id="carType" placeholder=" Make/Model ">
-        <input v-model="startYear" type="text" id="startYear" placeholder=" Year Start ">
-        <input v-model="endYear" type="text" id="endYear" placeholder=" Year End ">
-        <input v-model="minPrice" type="text" id="minPrice" placeholder=" Min Price ">
-        <input v-model="maxPrice" type="text" id="maxPrice" placeholder=" Max Price ">
-        <div class="button-container">
+        <select name="vehicle" id="vehicle">
+          <option value="Make">Make</option>
+          <option value="Toyota">Toyota</option>
+          <option value="VW">VW</option>
+          <option value="BMW">BMW</option>
+          <option value="Audi">Audi</option>
+          <option value="Ford">Ford</option>
+        </select>
+
+        <select name="vehicle" id="vehicle">
+          <option value="model">Model</option>
+          <option value="Toyota">Toyota</option>
+          <option value="VW">VW</option>
+          <option value="BMW">BMW</option>
+          <option value="Audi">Audi</option>
+          <option value="Ford">Ford</option>
+        </select>
+
+        <select name="Year" id="year">
+          <option value="Year">Year</option>
+          <option value="2026">2026-2020</option>
+          <option value="2019">2019-2014</option>
+          <option value="2013">2013-2007</option>
+        </select>
+
+         <select name="Price" id="price">
+          <option value="Price">Price</option>
+          <option value="50k">50k-41k</option>
+          <option value="40k">40k-31k</option>
+          <option value="30k">30k-21k</option>
+          <option value="20k">20k-10k</option>
+          <option value="10k">less than 10k</option>
+        </select>
+
+        <select name="vehicle" id="vehicle">
+          <option value="Milage">Milage</option>
+          <option value="200k">over 200,000km</option>
+          <option value="high">150,000km-199,000km</option>
+          <option value="medium">100,000km-144,000km</option>
+          <option value="low">50,000-99,000km</option>
+          <option value="Veryl_low">less then 50,000km</option>
+        </select>
         <button class="search"> Search </button>
-        </div>  
+         
       </form>
     </div>
 
-    <div>
-      <h1 class="available"> Currently Available</h1>
+    <div class = "Available_Stock">
+      <div id="header"> <h1>Currently Available</h1></div>
       <div class="card">
-        <div v-for="vehicle in vehicles" :key="vehicle.reg">
-    <h3>{{ vehicle.make }}</h3>
-    <p>Year: {{ vehicle.year }}</p>
-    <p>Milage: {{ vehicle.milage }}</p>
-    <p>Price: {{ vehicle.price }}</p>
-    <img :src="`http://localhost:3000${vehicle.images_url}`" alt="Vehicle Image" width="200px" height="100px"/>
-    </div>
-
+        <div v-for="vehicle in vehicles" :key="vehicle.value">
+          <img 
+    v-if="vehicle.images && vehicle.images.length > 0"
+    :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="200px" height="100px" />
+          <h3>{{ vehicle.reg }}</h3>
+          <h3>{{ vehicle.make }}</h3>
+          <p>Year: {{ vehicle.year }}</p>
+          <p>Milage: {{ vehicle.milage }}</p>
+          <p>Price: {{ vehicle.price }}</p>
+        </div>
       </div>
     <div class="location">
       <img src="" alt="" class="map">
@@ -117,5 +155,33 @@ export default {
 
 <style>
 
+.Available_Stock {
+  display: flex;
+  flex-direction: column;
+}
+#header h1{
+  text-align: center;
+}
+.card{
+    flex-direction: row;
+}
 
+.searchFilter{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.searchFilter select{
+  margin: 5px;
+  border-color: rgb(172, 170, 170);
+  border-radius: 8px;
+  background-color: rgb(199, 201, 201);
+}
+
+.searchFilter button{
+  border-radius: 10px;
+  margin: 5px;
+}
 </style>

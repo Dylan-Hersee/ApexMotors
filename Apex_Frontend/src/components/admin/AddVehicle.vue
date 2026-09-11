@@ -3,7 +3,7 @@
 
   const emit = defineEmits(["addVehicle"]);
 
-  const carReg = ref("");
+  const reg = ref("");
   const make = ref("");
   const model = ref("");
   const year = ref("");
@@ -14,7 +14,7 @@
 
     function vehicleSubmit(){
         emit("addVehicle", {
-            carReg: carReg.value, 
+            reg: reg.value, 
             make: make.value, 
             model: model.value, 
             year: year.value, 
@@ -29,7 +29,7 @@
 <template>
     <div class="addVehicle">
             <form @submit.prevent="vehicleSubmit">
-                <input v-model="carReg" type="carReg" name="carReg" placeholder="07/D/1234">
+                <input v-model="reg" type="reg" name="reg" placeholder="07/D/1234">
                 <input v-model="make" type="make" name="make" placeholder="Make">
                 <input v-model="model" type="model" name="model" placeholder="Model">
                 <input v-model="year" type="year" name="year" placeholder="Year">
