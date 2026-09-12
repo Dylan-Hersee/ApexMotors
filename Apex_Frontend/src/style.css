@@ -3,7 +3,8 @@
     width: 100%;
     min-height: 100vh;
     background-color: #000000;
-    color: rgb(107, 99, 99);
+    transition: 0.3ms;
+    
 }
 
 .nav-links{
