@@ -31,9 +31,10 @@ export default {
 
 <template>
   <div class="page-wrapper">
-    <div>
+    <div class="hero-wrapper">
+    <div class="nav-container" >
       <nav>
-      <a href="./home.vue"><img src="../images/Apex_logo.jpeg" alt="" width = "200px" height="100px"></a>
+      <a href="./home.vue"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></a>
       <ul class="nav-links">
         <li><a href="">Stock</a></li>
         <li><a href="">Finance</a></li>
@@ -43,8 +44,7 @@ export default {
       </ul>
       </nav>
     </div>
-
-    <div class="searchFilter"> 
+    <div class="searchFilter" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }"> 
       <form @submit="">
         <div class="selector" id="make">
           <select name="vehicle" id="vehicle">
@@ -101,11 +101,11 @@ export default {
          
       </form>
     </div>
-
-    <div id="header"> <h1>Featured Stock</h1></div>
-
-    <div class = "Available_Stock">
-        <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container">
+    
+    <div class="feature-container" >
+    <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
+    <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
+        <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
     :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%" />
@@ -115,6 +115,8 @@ export default {
           <p>Milage: {{ vehicle.milage }}</p>
           <p>Price: {{ vehicle.price }}</p>
         </div>
+      </div>
+      </div>
       </div>
       <div class="contact">
         <div class="contact-input">
@@ -150,7 +152,7 @@ export default {
           <li><span class="day">Sunday</span><span class="hours"> By Appointment Only</span></li>
         </ul>
       </div>
-      <div class="loaction-box">
+      <div class="loaction-box" v-motion-fade>
       <section>
           <h1>Our Location </h1>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.0512725221956!2d-6.58522372348239!3d52.51441117205974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4868014faf2f4eb3%3A0x9a440e63f63e66d9!2sThe%20Grove!5e0!3m2!1sen!2sie!4v1789249342015!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -178,9 +180,11 @@ export default {
 
 
 
-
 #header h1{
   text-align: center;
+}
+.nav-container{
+  background: transparent;
 }
 
 .searchFilter{
@@ -188,8 +192,16 @@ export default {
   margin: 5px;
   animation: appear linear;
   animation-timeline: view();
-}
+  background: transparent;
 
+}
+.hero-wrapper{
+  position: relative;
+  background-image: url("../images/backgroundImg.png");
+  background-size: cover;
+  mask-image: linear-gradient(to bottom, Black 95%, transparent 100%);
+  padding-bottom: 10%;
+}
 .searchFilter form{
   display: flex;
   flex-direction: row;
@@ -206,6 +218,10 @@ export default {
   color: rgb(228, 228, 228);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.searchFilter button{
+  padding-left: 2%;
+  padding-right: 2%;
+}
 
 #header{
   margin-bottom: 50px;
@@ -217,6 +233,7 @@ export default {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation: appear linear;
   animation-timeline: view();
+  flex-wrap: wrap;
 }
 .Available_Stock img{
   overflow: hidden;
@@ -225,8 +242,10 @@ export default {
   border-radius: 20px;
   flex: 0 0 25%;
   background: #bcbcbc;
-  box-shadow: 16px 40px 84px 14px rgba(160, 160, 160, 0.31);
+  box-shadow: 0px 0px 84px 0px rgba(160, 160, 160, 0.31);
   animation: appear 5s linear;
+  margin: 2%;
+  overflow: scroll;
 }
 .card-container p{
   text-align: justify;
@@ -254,6 +273,7 @@ export default {
  h1{
   background: -webkit-linear-gradient( #8b8b8b, #d70000);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -269,6 +289,31 @@ export default {
   flex-direction: row;
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 5%;
+  animation: headingMask linear both;
+  animation-timeline: view();
+}
+
+@keyframes headingMask {
+  0%{
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+    letter-spacing: 1%;
+    filter: blur(5px);
+  }
+
+  10%{
+    transform:translateY(-2px) scale(1);
+  }
+
+  25%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0;
+    filter: blur(0);
+  }
+
+
 }
 .contact h1{
   margin-bottom: 20px;
@@ -393,7 +438,7 @@ export default {
 }
 
 .ftr-container{
-  padding-bottom: 4rem;
+  margin-bottom: 0;
 }
 footer{
   width: 80%;
@@ -402,6 +447,7 @@ footer{
   display: flex;
   margin-right: 2rem;
   margin-top: 5rem;
+  justify-content: center;
 }
 .ftr-link a{
   position: relative;
@@ -416,8 +462,8 @@ footer{
     gap: 2rem;
     padding-right: 5px;
     margin: 2rem;
-
 }
+
 
 
 </style>
