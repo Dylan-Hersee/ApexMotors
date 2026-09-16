@@ -9,12 +9,12 @@ import About from '../components/users/About.vue'
 const routes = [
   { path: '/home', name: 'home', component: HomeView },
   { path: '/admin', name: 'admin', component: AdminApp },
-  { path: '/vehicles/:{reg}', name: 'vehicles', component: Vehicles },
-  { path: '/about', name: 'about', component: About}
+  { path: '/vehicles/:reg', name: 'vehicles', component: Vehicles },
+  { path: '/about', name: 'about', component: About }
 ]
 
 const router = createRouter({
-  history: createWebHistory('/ApexMotors/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 
