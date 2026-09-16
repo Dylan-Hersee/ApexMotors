@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class StockController {
     }
 
     @PostMapping ("/vehicle/images")
-    public void getVehicleImages(@RequestParam String reg, @RequestBody List<Images> images_url) throws Exception{
+    public void getVehicleImages(@PathVariable String reg, @RequestBody List<Images> images_url) throws Exception{
         stockServ.showVehicleImages(reg, images_url);
     }
 

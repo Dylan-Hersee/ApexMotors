@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 import { MotionPlugin } from '@vueuse/motion'
 
+
 const app = createApp(App)
 app.use(router)
 app.use(createBootstrap())

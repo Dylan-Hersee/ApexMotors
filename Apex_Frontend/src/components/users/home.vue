@@ -2,6 +2,7 @@
 
 <script lang="js">
 import { ref } from "vue";
+import vehicles from './Vehicles.vue'
 
 
 export default {
@@ -22,7 +23,8 @@ export default {
         }
 
         return { vehicles, getVehicles };
-    }
+    },
+
 };
 
 </script>
@@ -33,7 +35,7 @@ export default {
   <div class="page-wrapper">
     <div class="hero-wrapper">
     <div class="nav-container" >
-      <nav>
+      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
       <a href="./home.vue"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></a>
       <ul class="nav-links">
         <li><a href="">Stock</a></li>
@@ -106,14 +108,16 @@ export default {
     <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
     <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
         <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
+          <router-link :to="`/vehicles/${vehicle.reg}`" class="router-link">
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
-    :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%" />
+    :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
           <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
           <p>Make: {{ vehicle.make }}</p>
-          <p>Year: {{ vehicle.year }}</p>
-          <p>Milage: {{ vehicle.milage }}</p>
-          <p>Price: {{ vehicle.price }}</p>
+          <span>Year: {{ vehicle.year }}</span>
+          <span>Milage: {{ vehicle.milage }}</span>
+          <span>Price: {{ vehicle.price }}</span>
+          </router-link>
         </div>
       </div>
       </div>
@@ -155,11 +159,11 @@ export default {
       <div class="loaction-box" v-motion-fade>
       <section>
           <h1>Our Location </h1>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.0512725221956!2d-6.58522372348239!3d52.51441117205974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4868014faf2f4eb3%3A0x9a440e63f63e66d9!2sThe%20Grove!5e0!3m2!1sen!2sie!4v1789249342015!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38126.14891313065!2d-6.435116356405593!3d53.32742476309685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdublin%2022!5e0!3m2!1sen!2sie!4v1789592052187!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </section>
       </div>
       </div>
-      <div class="ftr-container">
+      <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
         <footer>
           <div class="ftr-link">
               <a href="">Stock</a>
@@ -234,9 +238,11 @@ export default {
   animation: appear linear;
   animation-timeline: view();
   flex-wrap: wrap;
+  
 }
 .Available_Stock img{
   overflow: hidden;
+  max-height: 50%;
 }
 .card-container{
   border-radius: 20px;
@@ -246,15 +252,27 @@ export default {
   animation: appear 5s linear;
   margin: 2%;
   overflow: scroll;
+  padding-bottom: 0;
 }
 .card-container p{
   text-align: justify;
   padding-left: 5%;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 20px;
+  margin-top: 40px;
   color: #444343;
-  
-  
+}
+.card-container span{
+  text-align: justify;
+  padding-left: 5%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #444343;
+  display: flex;
+  margin-top: 20px;
+
+}
+
+.router-link{
+  text-decoration: none;
 }
 .vehHeader{
   margin-top: 0;
@@ -429,7 +447,31 @@ export default {
 }
 .box-container{
   display: flex;
+
+animation: headingMask linear both;
+  animation-timeline: view();
 }
+
+@keyframes headingMask {
+  0%{
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+    letter-spacing: 1%;
+    filter: blur(5px);
+  }
+
+  10%{
+    transform:translateY(-2px) scale(1);
+  }
+
+  25%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0;
+    filter: blur(0);
+  }
+}
+
 .box-container iframe{
   max-width: 500px;
   max-height:400px;
