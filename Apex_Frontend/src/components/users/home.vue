@@ -3,6 +3,7 @@
 <script lang="js">
 import { ref } from "vue";
 import vehicles from './Vehicles.vue'
+import Vehicles from "./Vehicles.vue";
 
 
 export default {
@@ -23,7 +24,7 @@ export default {
         }
 
         return { vehicles, getVehicles };
-    },
+    }
 
 };
 
@@ -108,15 +109,15 @@ export default {
     <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
     <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
         <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
-          <router-link :to="`/vehicles/${vehicle.reg}`" class="router-link">
+          <router-link :to="{ path: `/vehicles/${vehicle.reg}`, state: { vehicle } }" class="router-link">
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
     :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
-          <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
-          <p>Make: {{ vehicle.make }}</p>
-          <span>Year: {{ vehicle.year }}</span>
-          <span>Milage: {{ vehicle.milage }}</span>
-          <span>Price: {{ vehicle.price }}</span>
+          <div class="vehHeader"><h3>{{ vehicles.reg }}</h3></div>
+          <p>Make: {{ vehicles.make }}</p>
+          <span>Year: {{ vehicles.year }}</span>
+          <span>Milage: {{ vehicles.milage }}</span>
+          <span>Price: {{ vehicles.price }}</span>
           </router-link>
         </div>
       </div>
@@ -383,8 +384,10 @@ export default {
   margin-right: 25px;
   padding: 10px 30px;
   border-radius: 10px;
-  background: #bababa;
-  color: #6b6b6b;
+  box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
+  background-color: rgb(2, 2, 2);
+  color: rgb(228, 228, 228);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-transform: uppercase;
   cursor: pointer;
   position: relative;

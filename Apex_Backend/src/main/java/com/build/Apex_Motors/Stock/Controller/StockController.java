@@ -29,7 +29,7 @@ public class StockController {
         return stockServ.findAllStock();
     }
 
-    @GetMapping("/vehicle/{reg}")
+    @GetMapping("/vehicle")
     public ResponseEntity<Stock> getStock(@RequestParam String reg){
         return stockServ.getStock(reg);
     }

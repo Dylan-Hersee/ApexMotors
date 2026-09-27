@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../components/users/home.vue'
 import AdminApp from '../components/admin/AdminApp.vue'
 import Vehicles from '../components/users/Vehicles.vue'
 import AddVehicle from '../components/admin/AddVehicle.vue'
 import About from '../components/users/About.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 
 const routes = [
@@ -14,8 +14,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes
+  history: createWebHistory(), routes
 })
+  
+
 
 export default router
