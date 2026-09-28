@@ -54,3 +54,5 @@ alter table Ownership
 add column import_country varchar(255);
 
 select * from features;
+select * from Images
+where reg="141-D-53176"

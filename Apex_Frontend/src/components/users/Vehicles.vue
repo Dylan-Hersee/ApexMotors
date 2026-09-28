@@ -1,4 +1,10 @@
 <script lang="js">
+import About from './About.vue';
+import Contact from './Contact.vue';
+import Finance from './Finance.vue';
+import Stock from './Stock.vue';
+import TradeIn from './TradeIn.vue';
+
 export default {
    data(){
     return{
@@ -19,10 +25,30 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="page-wrapper">
+        <div class="nav-container" >
+      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
+      <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
+      <ul class="nav-links">
+        <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
+        <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
+        <li><router-link :to="{path: `/trade-in`, state: { TradeIn }}">Trade-in</router-link></li>
+        <li><router-link :to="{path: `/Contact`, state: { Contact }}">Contact</router-link></li>
+        <li><router-link :to="{path: `/about`, state: { About }}">About</router-link></li>
+      </ul>
+      </nav>
+    </div>
         <div class="card-container">
+            <div class="image-container">
+                <div class="slides" v-if="vehicle.images && vehicle.images.length > 0">
+                    <img v-for="(image, i) in vehicle.images" 
+                    :key="image.images_url"
+                    :src="`http://localhost:3000${image.image_url}`"
+                    :alt="`${vehicle.reg} image ${i+1}`">
+                </div>
+
+            </div>
             <div class="detail_container" v-if="vehicle">
-            
                 <h1 id="header"> {{ vehicle.reg }}</h1>
                 <p class="car_details"> Make <span>{{ vehicle.make }}</span></p>
                 <p class="car_details"> Model <span>{{ vehicle.model }}</span></p>
@@ -30,6 +56,7 @@ export default {
                 <p class="car_details"> Milage <span>{{ vehicle.milage }}</span></p>
             <div class="end">
                 <h2 class="car_details"> € <span>{{ vehicle.price }}</span></h2>
+                <article> {{ vehicle.images }}</article>
             </div>
             <div class="overview">
 
