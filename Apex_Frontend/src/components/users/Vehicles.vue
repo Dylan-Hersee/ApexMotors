@@ -1,15 +1,19 @@
 <script lang="js">
+import { Transition } from 'vue';
 import About from './About.vue';
 import Contact from './Contact.vue';
 import Finance from './Finance.vue';
 import Stock from './Stock.vue';
 import TradeIn from './TradeIn.vue';
 
+
 export default {
    data(){
     return{
+
         reg: this.$route.params.reg, 
-        vehicle: {}
+        vehicle: {},
+        currentImg: 0
     }
    }, 
    created(){
@@ -19,14 +23,33 @@ export default {
         console.log(data)
         this.vehicle = data
     }).catch(err => console.error(err))
+    },
+    methods:{
+    
+    
+     next(){
+        if(this.currentImg < this.vehicle.images.length - 1){
+            this.currentImg++
+        }else{
+            this.currentImg = 0
+        }
     }
-}
+
+    , prev(){
+        if(this.currentImg > 0){
+            this.currentImg--
+        }else{
+            this.currentImg = this.vehicle.images.length - 1
+        }
+    }
+    }
+    } 
    
 </script>
 
 <template>
-    <div class="page-wrapper">
-        <div class="nav-container" >
+    <div class="vehicle-page-wrapper">
+        <div class="vehicle-nav-container" >
       <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
       <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
       <ul class="nav-links">
@@ -38,26 +61,48 @@ export default {
       </ul>
       </nav>
     </div>
-        <div class="card-container">
-            <div class="image-container">
-                <div class="slides" v-if="vehicle.images && vehicle.images.length > 0">
+        <div class="slider">
+                <button class="btn" id="btn-left" @click="prev()">&#706</button>
+                <transition name="fade" mode="out-in">
+                <div class="img-box" v-if="vehicle.images && vehicle.images.length > 0">
+                    <div class="img_item">
+                    
                     <img v-for="(image, i) in vehicle.images" 
                     :key="image.images_url"
                     :src="`http://localhost:3000${image.image_url}`"
-                    :alt="`${vehicle.reg} image ${i+1}`">
+                    :alt="`${vehicle.reg}`" style="width: 900px; height: 400px;" v-show="currentImg === i">
+                    
+                    </div>
                 </div>
-
+                </transition>
+                
+                
+                <button class="btn" id="btn-right" @click="next()">&#707</button>
             </div>
+            
+                
+        <div class="card-container">
             <div class="detail_container" v-if="vehicle">
-                <h1 id="header"> {{ vehicle.reg }}</h1>
-                <p class="car_details"> Make <span>{{ vehicle.make }}</span></p>
-                <p class="car_details"> Model <span>{{ vehicle.model }}</span></p>
-                <p class="car_details"> Year <span>{{ vehicle.year }}</span></p>
-                <p class="car_details"> Milage <span>{{ vehicle.milage }}</span></p>
-            <div class="end">
-                <h2 class="car_details"> € <span>{{ vehicle.price }}</span></h2>
-                <article> {{ vehicle.images }}</article>
-            </div>
+                <div class="reg">
+                <h1> {{ vehicle.reg }}</h1>
+                </div>
+                <div class="contents">
+                    <div class="make">
+                        <p class="car_details"> Make <span>{{ vehicle.make }}</span></p>
+                    </div>
+                    <div class="model">
+                        <p class="car_details"> Model <span>{{ vehicle.model }}</span></p>
+                    </div>
+                    <div class="year">
+                        <p class="car_details"> Year <span>{{ vehicle.year }}</span></p>
+                    </div>
+                    <div class="milage">
+                        <p class="car_details"> Milage <span>{{ vehicle.milage }}</span></p>
+                    </div>
+                </div>
+                <div class="end">
+                    <h2 class="car_details"> € <span>{{ vehicle.price }}</span></h2>
+                </div>
             <div class="overview">
 
             </div>
@@ -178,6 +223,85 @@ export default {
     </div>
    
 </template>
-<style>
+<style scoped>
+.vehicle-page-wrapper{
+    background-color: #000000;
+    
+}
+.slider{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.img-box{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    max-height: 400px;
+    max-width: 900px;
+}
+    .img-box img{
+        width: 100% auto-fill;
+        height: 100% auto-fill;
+        
+        }
+  
+    #btn-left, #btn-right{
+        position: relative;
+        border:none;
+        outline:none;
+        background-color: transparent;
+        font-size: 100px;
+        color: #fff;
+        cursor: pointer;
+    } 
 
+    #btn-left{
+        margin-right: -50px;
+    }
+    #btn-right{
+        margin-left: -40px;
+    }
+    
+    
+    #btn-left:hover, #btn-right:hover{
+        color: #2c2a2a;
+    }
+
+    @keyframes fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 0.5s;
+    }
+    .fade-enter-from, .fade-leave-to {
+        opacity: 0;
+    }
+    .card-container{
+       display: flex;
+       flex-direction: row;
+       width: 50%;
+       animation: appear 5s linear;
+       font-family: 'Roboto', sans-serif;
+       padding:0;
+    }
+    .detail_container{
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        max-width: 400px;
+        color: #bababa;
+        margin-left: 25px;
+        flex-direction: row;
+    }
+
+    .detail_container p, .detail_container h2{
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+    }
+    .reg{
+        align-items: center;
+    }
 </style>

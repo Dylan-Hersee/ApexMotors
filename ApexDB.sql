@@ -55,4 +55,6 @@ add column import_country varchar(255);
 
 select * from features;
 select * from Images
-where reg="141-D-53176"
+where reg="141-D-53176";
+
+insert into Images(images_url, reg) values ('/images/141-D-53176/Audi_img2.png', '141-D-53176')

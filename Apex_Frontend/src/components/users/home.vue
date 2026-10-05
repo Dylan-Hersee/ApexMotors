@@ -509,6 +509,10 @@ footer{
     margin: 2rem;
 }
 
+@media screen {
 
+  
+  
+}
 
 </style>
