@@ -4,13 +4,14 @@ import AdminApp from '../components/admin/AdminApp.vue'
 import Vehicles from '../components/users/Vehicles.vue'
 import AddVehicle from '../components/admin/AddVehicle.vue'
 import About from '../components/users/About.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Contact from '../components/users/Contact.vue'
 import Stock from '../components/users/Stock.vue'
 import Finance from '../components/users/Finance.vue'
 
 
 const routes = [
+  { path: '/', redirect: '/home'},
   { path: '/home', name: 'home', component: HomeView },
   { path: '/admin', name: 'admin', component: AdminApp },
   { path: '/vehicles/:reg', name: 'vehicles', component: Vehicles },
@@ -22,7 +23,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(), routes
+  history: createWebHashHistory(import.meta.env.BASE_URL), routes
 })
   
 
