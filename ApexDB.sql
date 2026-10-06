@@ -54,7 +54,9 @@ alter table Ownership
 add column import_country varchar(255);
 
 select * from features;
-select * from Images
-where reg="141-D-53176";
+select * from Stock
+where reg="152-D-40185";
 
-insert into Images(images_url, reg) values ('/images/141-D-53176/Audi_img2.png', '141-D-53176')
+insert into Images(images_url, reg) values ('/images/152-D-40185/VW_img.png', '152-D-40185');
+
+delete from Images where images_url ="/images/151-D-40185/VW_img1.png"
