@@ -17,7 +17,7 @@ export default {
     }
    }, 
    created(){
-    fetch(`http://localhost:3000/api/vehicles/vehicle?reg=${this.reg}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/vehicles/vehicle?reg=${this.reg}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)

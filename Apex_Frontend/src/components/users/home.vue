@@ -12,13 +12,13 @@ export default {
          getVehicles();
 
         async function getVehicles() {
-            const res = await fetch("http://localhost:3000/api/vehicles/allVehicles");
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/vehicles/allVehicles`);
             vehicles.value = await res.json();
             console.log(vehicles.value);
         }
 
         async function getImages(reg, images_url) {
-            const res = await fetch(`http://localhost:3000/api/vehicles/vehicle/images?reg=${reg}&images_url=${images_url}`);
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/vehicles/vehicle/images?reg=${reg}&images_url=${images_url}`);
             const images = await res.json();
             console.log(images);
         }
