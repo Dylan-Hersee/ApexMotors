@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+    contents: read
+    id-token: write
+    pages: write
+       
+jobs:
+    build:
+      runs-on: ubuntu-latest      
+      steps:
+        - uses: actions/checkout@v4
+
+        - uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+    
+
+        - name: Install Dependencies
+          run: npm ci
+          working-directory: ./Apex_Frontend
+    
+        - name: Build
+          run: npm run build
+          working-directory: ./Apex_Frontend
+          env:
+              VITE_API_URL: https://apexmotors-7wrf.onrender.com
+      
+      
+        - uses: actions/upload-pages-artifact@v3
+          with:
+            path: ./Apex_Frontend/dist
+
+
+    deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}    
+      steps:
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
