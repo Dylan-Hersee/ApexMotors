@@ -69,7 +69,7 @@ export default {
                     
                     <img v-for="(image, i) in vehicle.images" 
                     :key="image.images_url"
-                    :src="`${import.meta.env.VITE_API_URL}${image.image_url}`"
+                    :src="`https://apexmotors-7wrf.onrender.com${image.image_url}`"
                     :alt="`${vehicle.reg}`" style="width: 900px; height: 400px;" v-show="currentImg === i">
                     
                     </div>
