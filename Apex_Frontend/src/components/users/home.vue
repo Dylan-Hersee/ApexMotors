@@ -15,12 +15,16 @@ export default {
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/vehicles/allVehicles`);
             vehicles.value = await res.json();
             console.log(vehicles.value);
+            const homeRes = await fetch('http://localhost:3000/vehicles');
+            console.log(homeRes);
         }
 
         async function getImages(reg, images_url) {
             const res = await fetch(`${import.meta.env.VITE_API_URL}/api/vehicles/vehicle/images?reg=${reg}&images_url=${images_url}`);
+            const homeRes = await fetch('http://localhost:3000/vehicles');
             const images = await res.json();
             console.log(images);
+            console.log(homeRes);
         }
 
         return { vehicles, getVehicles };
@@ -112,7 +116,7 @@ export default {
           <router-link :to="{ path: `/vehicles/${vehicle.reg}`, state: { vehicle } }" class="router-link">
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
-    :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
+    :src="`${import.meta.env.VITE_API_URL}${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
           <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
           <p>Make: {{ vehicle.make }}</p>
           <span>Year: {{ vehicle.year }}</span>

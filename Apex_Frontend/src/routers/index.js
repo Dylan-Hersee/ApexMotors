@@ -25,7 +25,12 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL), routes
 })
+
+const homeRouter = createRouter({
+  history: createWebHashHistory('http://localhost:5173/ApexMotors/'), routes
+})
   
 
 
 export default router
+export { homeRouter }
