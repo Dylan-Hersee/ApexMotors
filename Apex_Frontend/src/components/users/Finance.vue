@@ -22,4 +22,9 @@ import Stock from './Stock.vue';
 
 <style>
 
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
 </style>

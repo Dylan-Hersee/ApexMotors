@@ -509,9 +509,7 @@ footer{
     margin: 2rem;
 }
 
-@media screen {
-
-  
+@media (max-width: 768px) {
   
 }
 

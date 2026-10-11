@@ -304,4 +304,16 @@ export default {
     .reg{
         align-items: center;
     }
+
+    @media screen and (max-width: 768px) {
+        .card-container{
+            flex-direction: column;
+            width: 100%;
+        }
+        .detail_container{
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+        }
+    }
 </style>
