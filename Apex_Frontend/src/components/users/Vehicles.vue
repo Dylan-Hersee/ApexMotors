@@ -24,13 +24,7 @@ export default {
         this.vehicle = data
     }).catch(err => console.error(err))
 
-    fetch(`http:localhost:/api/vehicles/vehicle?reg=${this.reg}`)
-    .then(testRes => testRes.json())
-    .then(data => {
-        console.log(data)
-        this.vehicle = data
-    }).catch(err => console.error(err))
-    },
+},
     methods:{
     
     
