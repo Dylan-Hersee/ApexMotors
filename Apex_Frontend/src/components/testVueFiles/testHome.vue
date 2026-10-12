@@ -1,0 +1,516 @@
+
+
+<script lang="js">
+import { ref } from "vue";
+import vehicles from './Vehicles.vue'
+import Stock from "./Stock.vue";
+
+
+export default {
+    setup() {
+        const vehicles = ref([]);
+         getVehicles();
+
+        async function getVehicles() {
+            const res = await fetch(`http://localhost:3000/api/vehicles/allVehicles`);
+            vehicles.value = await res.json();
+            console.log(testRes);
+        }
+
+        async function getImages(reg, images_url) {
+            const res = await fetch(`http://localhost:3000/api/vehicles/vehicle/images?reg=${reg}&images_url=${images_url}`);
+            const images = await res.json();
+            console.log(images);
+        }
+
+        return { vehicles, getVehicles };
+    }
+
+};
+
+</script>
+
+
+
+<template>
+  <div class="page-wrapper">
+    <div class="hero-wrapper">
+    <div class="nav-container" >
+      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
+       <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
+      <ul class="nav-links">
+        <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
+        <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
+        <li><router-link :to="{path: `/trade-in`, state: { TradeIn }}">Trade-in</router-link></li>
+        <li><router-link :to="{path: `/Contact`, state: { Contact }}">Contact</router-link></li>
+        <li><router-link :to="{path: `/about`, state: { About }}">About</router-link></li>
+      </ul>
+      </nav>
+    </div>
+    <div class="searchFilter" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }"> 
+      <form @submit="">
+        <div class="selector" id="make">
+          <select name="vehicle" id="vehicle">
+            <option value="Make">Make</option>
+            <option value="Toyota">Toyota</option>
+            <option value="VW">VW</option>
+            <option value="BMW">BMW</option>
+            <option value="Audi">Audi</option>
+            <option value="Ford">Ford</option>
+          </select>
+        </div>
+        <div class="selector" id="model">
+          <select name="vehicle" id="vehicle">
+            <option value="model">Model</option>
+            <option value="Toyota">Toyota</option>
+            <option value="VW">VW</option>
+            <option value="BMW">BMW</option>
+            <option value="Audi">Audi</option>
+            <option value="Ford">Ford</option>
+          </select>
+        </div>
+
+        <div class="selector" id="year">
+          <select name="Year" id="year">
+            <option value="Year">Year</option>
+            <option value="2026">2026-2020</option>
+            <option value="2019">2019-2014</option>
+            <option value="2013">2013-2007</option>
+          </select>
+        </div>
+
+        <div class="selector" id="price">
+          <select name="Price" id="price">
+            <option value="Price">Price</option>
+            <option value="50k">50k-41k</option>
+            <option value="40k">40k-31k</option>
+            <option value="30k">30k-21k</option>
+            <option value="20k">20k-10k</option>
+            <option value="10k">less than 10k</option>
+          </select>
+        </div>
+
+        <div class="selector" id="milage">
+          <select name="vehicle" id="vehicle">
+            <option value="Milage">Milage</option>
+            <option value="200k">over 200,000km</option>
+            <option value="high">150,000km-199,000km</option>
+            <option value="medium">100,000km-144,000km</option>
+            <option value="low">50,000-99,000km</option>
+            <option value="Veryl_low">less then 50,000km</option>
+          </select>
+        </div>
+        <button class="selector"> Search </button>
+         
+      </form>
+    </div>
+    
+    <div class="feature-container" >
+    <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
+    <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
+        <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
+          <router-link :to="{ path: `/vehicles/${vehicle.reg}`, state: { vehicle } }" class="router-link">
+          <img 
+    v-if="vehicle.images && vehicle.images.length > 0"
+    :src="`https://apexmotors-7wrf.onrender.com${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
+          <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
+          <p>Make: {{ vehicle.make }}</p>
+          <span>Year: {{ vehicle.year }}</span>
+          <span>Milage: {{ vehicle.milage }}</span>
+          <span>Price: {{ vehicle.price }}</span>
+          </router-link>
+        </div>
+      </div>
+      </div>
+      </div>
+      <div class="contact">
+        <div class="contact-input">
+          <div><h1 class="contactHeader">Contact Us</h1></div>
+        <form action="">
+        <div class="contact-form">
+          <input v-model="contactForm" type="text" placeholder=" Name " id="name">
+          <input type="text" placeholder=" Phone " id="phone">
+          <input type="text" placeholder=" Email " id="email">
+          <input type="text" placeholder=" Message " id="message">
+        </div>
+        <div class="contact-bt"><button>Send</button></div>
+        </form>
+        </div>
+         <div class="contact-details">
+      <h1> Any Questions? </h1>
+      <p> Email: </p>
+      <p> Phone: </p>
+      <a href="" class="social"><img src="../images/insta.png" alt="" width="100px"></a>
+      <a href="" class="social"><img src="../images/TikTok.png" alt="" width="100px"></a>
+      </div>
+      </div>
+      <div class="box-container">
+      <div class="openHours">
+        <h1>Opening Hours</h1>
+        <ul class="opening">
+          <li><span class="day">Monday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Tuesday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Wednesday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Thursday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Friday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Saturday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Sunday</span><span class="hours"> By Appointment Only</span></li>
+        </ul>
+      </div>
+      <div class="loaction-box" v-motion-fade>
+      <section>
+          <h1>Our Location </h1>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38126.14891313065!2d-6.435116356405593!3d53.32742476309685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdublin%2022!5e0!3m2!1sen!2sie!4v1789592052187!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </section>
+      </div>
+      </div>
+      <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
+        <footer>
+          <div class="ftr-link">
+              <a href="">Stock</a>
+              <a href="">Finance</a>
+              <a href="">Trade-in</a>
+              <a href="">Contact</a>
+              <a href="">About</a>
+              <a href="" class="social"><img src="../images/insta.png" alt="" width="50px"></a>
+              <a href="" class="social"><img src="../images/TikTok.png" alt="" width="50px"></a>
+          
+          </div>
+        </footer>
+      </div>
+    </div>
+</template>
+
+<style>
+
+
+
+#header h1{
+  text-align: center;
+}
+.nav-container{
+  background: transparent;
+}
+
+.searchFilter{
+  padding: 5px;
+  margin: 5px;
+  animation: appear linear;
+  animation-timeline: view();
+  background: transparent;
+
+}
+.hero-wrapper{
+  position: relative;
+  background-image: url("../images/backgroundImg.png");
+  background-size: cover;
+  mask-image: linear-gradient(to bottom, Black 95%, transparent 100%);
+  padding-bottom: 10%;
+}
+.searchFilter form{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  padding: 20px;  
+}
+
+.selector, .selector select{
+  height:50px;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
+  background-color: rgb(2, 2, 2);
+  color: rgb(228, 228, 228);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.searchFilter button{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+#header{
+  margin-bottom: 50px;
+}
+.Available_Stock{
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  animation: appear linear;
+  animation-timeline: view();
+  flex-wrap: wrap;
+  
+}
+.Available_Stock img{
+  overflow: hidden;
+  max-height: 50%;
+}
+.card-container{
+  border-radius: 20px;
+  flex: 0 0 25%;
+  background: #bcbcbc;
+  box-shadow: 0px 0px 84px 0px rgba(160, 160, 160, 0.31);
+  animation: appear 5s linear;
+  margin: 2%;
+  overflow: scroll;
+  padding-bottom: 0;
+}
+.card-container p{
+  text-align: justify;
+  padding-left: 5%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 40px;
+  color: #161515;
+}
+.card-container span{
+  text-align: justify;
+  padding-left: 5%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #030303;
+  display: flex;
+  margin-top: 20px;
+
+}
+
+.router-link{
+  text-decoration: none;
+}
+.vehHeader{
+  margin-top: 0;
+  text-align: center;
+  background: #373737;
+  color: rgb(255, 252, 252);
+  margin: -20px;
+  position: relative;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+ h1{
+  background: -webkit-linear-gradient( #8b8b8b, #d70000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information{
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  animation: appear linear;
+  animation-timeline: view();
+}
+.contact{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 5%;
+  animation: headingMask linear both;
+  animation-timeline: view();
+}
+
+@keyframes headingMask {
+  0%{
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+    letter-spacing: 1%;
+    filter: blur(5px);
+  }
+
+  10%{
+    transform:translateY(-2px) scale(1);
+  }
+
+  25%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0;
+    filter: blur(0);
+  }
+
+
+}
+.contact h1{
+  margin-bottom: 20px;
+}
+.contact input{
+  display: flex;
+  flex-direction: column;
+  background: #d5d5d5;
+  border: #4b4b4b;
+  border-radius: 8px;
+  box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
+  margin-bottom: 1rem;
+
+  
+}
+
+#name{ 
+  width: 45%;
+  max-width: 205px;
+  
+}
+
+#phone{
+  width: 45%;
+  max-width: 205px;
+ 
+
+}
+#message{
+  padding-bottom: 50px;
+  width: 95%;
+  margin-right: 5%;
+
+}
+#email{
+  width: 95%;
+  margin-right: 5%;
+  max-width: 250px;
+  
+}
+
+.contact-bt {
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.contact button{
+  margin-right: 25px;
+  padding: 10px 30px;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
+  background-color: rgb(2, 2, 2);
+  color: rgb(228, 228, 228);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  
+}
+.contact button ::after{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #aaa6a6;
+  left: 0;
+  top: 0;
+}
+.contact button ::before{
+  content: "";
+  background: linear-gradient(
+    45deg, 
+    #d70000, #6b6b6b, #373737
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
+.contact-input{
+  flex: 1;
+  margin-left: 25px;
+  animation: appear linear;
+  animation-timeline: view();
+}
+.contact-details{
+  flex: 1;
+  color: #d5d5d5;
+  animation: appear linear;
+  animation-timeline: view();
+}
+.social{
+  margin: 10px;
+}
+.openHours{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  animation: appear 5s linear;
+}
+.opening{
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+  color: #bababa;
+  margin-left: 25px;
+}
+.opening li{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+.box-container{
+  display: flex;
+
+animation: headingMask linear both;
+  animation-timeline: view();
+}
+
+@keyframes headingMask {
+  0%{
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+    letter-spacing: 1%;
+    filter: blur(5px);
+  }
+
+  10%{
+    transform:translateY(-2px) scale(1);
+  }
+
+  25%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0;
+    filter: blur(0);
+  }
+}
+
+.box-container iframe{
+  max-width: 500px;
+  max-height:400px;
+  border-radius: 8px;
+
+}
+
+.ftr-container{
+  margin-bottom: 0;
+}
+footer{
+  width: 80%;
+  height: 40vh;
+  color: #d5d5d5;
+  display: flex;
+  margin-right: 2rem;
+  margin-top: 5rem;
+  justify-content: center;
+}
+.ftr-link a{
+  position: relative;
+    font-size: 1.45rem;
+    font-weight:500;
+    text-decoration:none;
+    color: rgb(228, 228, 228);
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    list-style:none;
+    gap: 2rem;
+    padding-right: 5px;
+    margin: 2rem;
+}
+
+@media (max-width: 768px) {
+  
+}
+
+</style>
