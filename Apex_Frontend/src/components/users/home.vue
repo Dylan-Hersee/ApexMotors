@@ -54,7 +54,12 @@ export default {
     <div class="nav-container" >
       <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
        <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
-      <ul class="nav-links">
+      <button class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+       <ul class="nav-links">
         <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
         <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
         <li><router-link :to="{path: `/trade-in`, state: { TradeIn }}">Trade-in</router-link></li>
