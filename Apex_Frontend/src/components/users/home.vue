@@ -219,6 +219,7 @@ export default {
   background: transparent;
 
 }
+
 .hero-wrapper{
   position: relative;
   background-image: url("../images/backgroundImg.png");
@@ -257,9 +258,9 @@ export default {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation: appear linear;
   animation-timeline: view();
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  
 }
-
 .Available_Stock img{
   overflow: hidden;
   max-height: 50%;
@@ -528,7 +529,8 @@ footer{
     margin: 2rem;
 }
 
-@media screen and (max-width: 660px) {
+
+@media screen and (max-width: 668px) {
     .content{
       position: relative;
       z-index: 1;
@@ -568,5 +570,5 @@ footer{
     }
   }
 
-
 </style>
+
