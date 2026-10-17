@@ -49,7 +49,7 @@ nav{
     background: linear-gradient( #4f1919, #ff3333);
     padding: 1rem;
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 880px) {
     
 .nav-toggle{
     display: none;
