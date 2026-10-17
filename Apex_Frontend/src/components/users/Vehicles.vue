@@ -317,4 +317,8 @@ export default {
             margin-left: 0;
         }
     }
+
+    @media only screen and (max-width: 1200px){
+        
+    }
 </style>

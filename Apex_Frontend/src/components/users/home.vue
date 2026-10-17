@@ -9,7 +9,6 @@ import Stock from "./Stock.vue";
 export default {
     setup() {
         const vehicles = ref([]);
-        const testVehicles = ref([]);
          getVehicles();
 
         async function getVehicles() {
@@ -25,6 +24,20 @@ export default {
             const images = await res.json();
             console.log(images);
         }
+
+         onMounted(() => {
+            const navbarToggle = document.querySelector('.nav-toggle');
+            const navbarMenu = document.querySelector('.nav-links');
+
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', () => {
+                    navbarToggle.classList.toggle('active');
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+
+            getVehicles();
+        });
 
         return { vehicles, getVehicles };
     }
@@ -50,6 +63,7 @@ export default {
       </ul>
       </nav>
     </div>
+    <div class="content">
     <div class="searchFilter" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }"> 
       <form @submit="">
         <div class="selector" id="make">
@@ -125,7 +139,7 @@ export default {
         </div>
       </div>
       </div>
-      </div>
+     
       <div class="contact">
         <div class="contact-input">
           <div><h1 class="contactHeader">Contact Us</h1></div>
@@ -182,6 +196,8 @@ export default {
         </footer>
       </div>
     </div>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -241,9 +257,9 @@ export default {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation: appear linear;
   animation-timeline: view();
-  flex-wrap: wrap;
-  
+  flex-wrap: wrap; 
 }
+
 .Available_Stock img{
   overflow: hidden;
   max-height: 50%;
@@ -512,8 +528,45 @@ footer{
     margin: 2rem;
 }
 
-@media (max-width: 768px) {
-  
-}
+@media screen and (max-width: 660px) {
+    .content{
+      position: relative;
+      z-index: 1;
+    } 
+ 
+    .navbar{
+        backdrop-filter: none;
+    }
+    .nav-container .nav-links{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+    }
+    .nav-toggle {
+        display: block;
+        z-index: 999;
+    }
+    .nav-container .nav-links.active{
+      display: flex;
+    }
+    .nav-toggle.active .bar:nth-child(2){
+      opacity: 0;
+    }
+     .nav-toggle.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+     .nav-toggle.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
 
 </style>

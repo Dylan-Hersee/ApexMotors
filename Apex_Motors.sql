@@ -24,8 +24,8 @@ select * from Images;
 alter table images;
 insert into images (id, Images_url, reg ) values( 4, '/images/Apex_logo.jpeg', '261/WX/12345');
 insert into Stock (reg, make, model, year, milage, price) values ('261/WX/12345', 'Audi', 'A1', 2026, 50000, '40000.00');
-
-select * from Stock;
+use apex_motors;
+select * from Images;
 update images
 set images_url = '/images/Apex_logo.jpeg'
 where reg = '221/D/20466';

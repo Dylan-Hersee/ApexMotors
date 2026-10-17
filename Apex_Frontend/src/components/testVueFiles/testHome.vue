@@ -2,19 +2,20 @@
 
 <script lang="js">
 import { ref } from "vue";
-import vehicles from './Vehicles.vue'
-import Stock from "./Stock.vue";
+import testHome from './testHome.vue'
+import testVehicle from './testVehicles.vue'
+import { onMounted } from "vue";
+
 
 
 export default {
     setup() {
         const vehicles = ref([]);
-         getVehicles();
 
         async function getVehicles() {
             const res = await fetch(`http://localhost:3000/api/vehicles/allVehicles`);
             vehicles.value = await res.json();
-            console.log(testRes);
+            console.log(vehicles.value);
         }
 
         async function getImages(reg, images_url) {
@@ -23,9 +24,22 @@ export default {
             console.log(images);
         }
 
-        return { vehicles, getVehicles };
-    }
+        onMounted(() => {
+            const navbarToggle = document.querySelector('.nav-toggle');
+            const navbarMenu = document.querySelector('.nav-links');
 
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', () => {
+                    navbarToggle.classList.toggle('active');
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+
+            getVehicles();
+        });
+
+        return { vehicles, getVehicles, getImages };
+    }
 };
 
 </script>
@@ -36,14 +50,19 @@ export default {
   <div class="page-wrapper">
     <div class="hero-wrapper">
     <div class="nav-container" >
-      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
-       <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
-      <ul class="nav-links">
-        <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
-        <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
-        <li><router-link :to="{path: `/trade-in`, state: { TradeIn }}">Trade-in</router-link></li>
-        <li><router-link :to="{path: `/Contact`, state: { Contact }}">Contact</router-link></li>
-        <li><router-link :to="{path: `/about`, state: { About }}">About</router-link></li>
+      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }" class="navbar">
+       <router-link :to="{path: `/testHome`, state: { testHome }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
+       <button class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+       </button>
+       <ul class="nav-links">
+        <li><a href="">Stock</a></li>
+        <li><a href="">Finance</a></li>
+        <li><a href="">Trade-in</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">About</a></li>
       </ul>
       </nav>
     </div>
@@ -109,10 +128,10 @@ export default {
     <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
     <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
         <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
-          <router-link :to="{ path: `/vehicles/${vehicle.reg}`, state: { vehicle } }" class="router-link">
+          <router-link :to="{ path: `/testVehicles/${vehicle.reg}`, state: { testVehicle } }" class="router-link">
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
-    :src="`https://apexmotors-7wrf.onrender.com${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
+    :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
           <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
           <p>Make: {{ vehicle.make }}</p>
           <span>Year: {{ vehicle.year }}</span>
@@ -200,6 +219,7 @@ export default {
   background: transparent;
 
 }
+
 .hero-wrapper{
   position: relative;
   background-image: url("../images/backgroundImg.png");
@@ -509,8 +529,45 @@ footer{
     margin: 2rem;
 }
 
-@media (max-width: 768px) {
-  
-}
+
+@media screen and (max-width: 660px) {
+    .content{
+      position: relative;
+      z-index: 1;
+    } 
+ 
+    .navbar{
+        backdrop-filter: none;
+    }
+    .nav-container .nav-links{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+    }
+    .nav-toggle {
+        display: block;
+        z-index: 999;
+    }
+    .nav-container .nav-links.active{
+      display: flex;
+    }
+    .nav-toggle.active .bar:nth-child(2){
+      opacity: 0;
+    }
+     .nav-toggle.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+     .nav-toggle.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
 
 </style>

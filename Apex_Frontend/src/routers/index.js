@@ -8,6 +8,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Contact from '../components/users/Contact.vue'
 import Stock from '../components/users/Stock.vue'
 import Finance from '../components/users/Finance.vue'
+import testHome from '../components/testVueFiles/testHome.vue'
+import testVehicle from '../components/testVueFiles/testVehicles.vue'
 
 
 const routes = [
@@ -19,7 +21,9 @@ const routes = [
   { path: '/trade-in', name: 'trade-in', component: TradeIn}, 
   { path: '/contact', name: 'contact', component: Contact}, 
   { path: '/stock', name: 'stock', component: Stock},
-  { path: '/finance', name: 'finance', component: Finance}
+  { path: '/finance', name: 'finance', component: Finance},
+  {path: '/test', name: 'testHome', component: testHome}, 
+  {path: '/testVehicle', name: 'testVehicle', component: testVehicle}
 ]
 
 const router = createRouter({
