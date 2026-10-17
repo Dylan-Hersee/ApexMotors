@@ -530,7 +530,7 @@ footer{
 }
 
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 668px) {
     .content{
       position: relative;
       z-index: 1;

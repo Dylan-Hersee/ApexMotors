@@ -4,7 +4,7 @@
 import { ref } from "vue";
 import vehicles from './Vehicles.vue'
 import Stock from "./Stock.vue";
-
+import { onMounted } from "vue";
 
 export default {
     setup() {
