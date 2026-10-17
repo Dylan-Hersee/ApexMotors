@@ -63,7 +63,6 @@ export default {
       </ul>
       </nav>
     </div>
-    <div class="content">
     <div class="searchFilter" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }"> 
       <form @submit="">
         <div class="selector" id="make">
@@ -195,7 +194,6 @@ export default {
           </div>
         </footer>
       </div>
-    </div>
     </div>
   </div>
 </template>
