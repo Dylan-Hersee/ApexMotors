@@ -580,7 +580,7 @@ animation: headingMask linear both;
     }
     .box-container .contact .ftr-link{
       width: 100%;
-      background-size: 100%;
+      background-size: cover;
     }
   
 .box-container iframe{
