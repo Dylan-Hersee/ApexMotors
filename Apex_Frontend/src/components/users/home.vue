@@ -549,6 +549,8 @@ animation: headingMask linear both;
       position: relative;
       z-index: 1;
       width: 100%;
+      flex: 1;
+      min-width: none;
     } 
     .hero-wrapper {
     background-size: 300px auto;
@@ -593,8 +595,8 @@ animation: headingMask linear both;
     }
   
 .box-container iframe{
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 300px auto;
+      max-height: 300px auto;
       margin-right: 0%;
       margin-left: 20%;
     }
