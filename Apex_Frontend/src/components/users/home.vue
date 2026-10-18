@@ -577,7 +577,7 @@ animation: headingMask linear both;
       transform: translateY(-8px) rotate(-45deg);
     }
     .box-container .contact .ftr-link{
-      width: auto;
+      width: 100%;
       background-size: 100%;
     }
   

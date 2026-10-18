@@ -501,7 +501,7 @@ animation: headingMask linear both;
   border-radius: 8px;
   margin-left: 50%;
 }
-.locationHead{
+.location{
   margin-left: 50%;
 }
 
