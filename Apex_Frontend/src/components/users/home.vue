@@ -144,7 +144,6 @@ export default {
       </div>
       </div>
     </div>
-    <div class="content">
       <div class="contact">
         <div class="contact-input">
           <div><h1 class="contactHeader">Contact Us</h1></div>
@@ -200,8 +199,6 @@ export default {
           </div>
         </footer>
       </div>
-      </div> 
-    
   </div>
 </template>
 
