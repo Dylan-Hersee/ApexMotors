@@ -534,7 +534,7 @@ animation: headingMask linear both;
     margin: 2rem;
 }
 
-@media screen and (max-width: 668px) {
+@media (max-width: 668px) {
     .content{
       position: relative;
       z-index: 1;
@@ -576,6 +576,11 @@ animation: headingMask linear both;
      .nav-toggle.active .bar:nth-child(3){
       transform: translateY(-8px) rotate(-45deg);
     }
+    .box-container .contact .ftr-link{
+      width: auto;
+      background-size: 100%;
+    }
+  
 .box-container iframe{
       max-width: 300px;
       max-height: 300px;
@@ -591,10 +596,7 @@ animation: headingMask linear both;
       padding: 0%;
       
     }
-    .Available_Stock{
-
-    }
-
+   
   }
 
 </style>
