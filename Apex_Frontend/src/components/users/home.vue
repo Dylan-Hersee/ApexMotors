@@ -515,7 +515,7 @@ animation: headingMask linear both;
 }
 .ftr-link{
   width: 80%;
-  color: hsl(0, 0%, 84%);
+  color: hsl(0, 78%, 42%);
   display: flex;
   margin-top: 5rem auto 0;
   justify-content: center;
