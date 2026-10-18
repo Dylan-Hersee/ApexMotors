@@ -167,18 +167,18 @@ export default {
       <div class="openHours">
         <h1>Opening Hours</h1>
         <ul class="opening">
-          <li><span class="day">Monday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Tuesday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Wednesday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Thursday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Friday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Saturday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Sunday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Monday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Tuesday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Wednesday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Thursday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Friday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Saturday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Sunday: </span><span class="hours"> By Appointment Only</span></li>
         </ul>
       </div>
       <div class="loaction-box" v-motion-fade>
       <section>
-          <h1>Our Location </h1>
+          <h1 class="locationHead">Our Location </h1>
           <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38126.14891313065!2d-6.435116356405593!3d53.32742476309685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdublin%2022!5e0!3m2!1sen!2sie!4v1789592052187!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </section>
       </div>
@@ -499,23 +499,25 @@ animation: headingMask linear both;
   max-width: 500px;
   max-height:400px;
   border-radius: 8px;
-
+  margin-left: 50%;
+}
+.locationHead{
+  margin-left: 50%;
 }
 
 .ftr-container{
   margin-bottom: 0;
 }
-footer{
+.ftr-link{
   width: 80%;
-  height: 40vh;
-  color: #d5d5d5;
+  color: hsl(0, 0%, 84%);
   display: flex;
-  margin-right: 2rem;
-  margin-top: 5rem;
+  margin-top: 5rem auto 0;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .ftr-link a{
-  position: relative;
+    align-items: center;
     font-size: 1.45rem;
     font-weight:500;
     text-decoration:none;
@@ -567,6 +569,21 @@ footer{
     }
      .nav-toggle.active .bar:nth-child(3){
       transform: translateY(-8px) rotate(-45deg);
+    }
+    .box-container iframe{
+      max-width: 300px;
+      max-height: 300px;
+      margin-right: 0%;
+      margin-left: 20%;
+    }
+    .locationHead{
+      margin-left: 20%;
+    }
+    .ftr-link a{
+      margin-left: 5px;
+      align-items: center;
+      padding: 0%;
+      
     }
   }
 
