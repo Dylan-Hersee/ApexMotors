@@ -143,7 +143,6 @@ export default {
         </div>
       </div>
       </div>
-    </div>
      
       <div class="contact">
         <div class="contact-input">
@@ -200,6 +199,7 @@ export default {
           </div>
         </footer>
       </div>
+    </div>
   </div>
 </template>
 
