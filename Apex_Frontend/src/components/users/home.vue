@@ -232,6 +232,11 @@ export default {
   mask-image: linear-gradient(to bottom, Black 95%, transparent 100%);
   padding-bottom: 10%;
 }
+.content{
+  position: relative;
+  background-size: cover;
+  background-color: #030303;
+}
 .searchFilter form{
   display: flex;
   flex-direction: row;
