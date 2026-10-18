@@ -236,6 +236,7 @@ export default {
   position: relative;
   background-size: cover;
   background-color: #030303;
+  box-sizing: border-box;
 }
 .searchFilter form{
   display: flex;
