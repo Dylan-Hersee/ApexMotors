@@ -571,8 +571,8 @@ animation: headingMask linear both;
       transform: translateY(-8px) rotate(-45deg);
     }
     .box-container iframe{
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 250px;
+      max-height: 250px;
       margin-right: 0%;
       margin-left: 20%;
     }

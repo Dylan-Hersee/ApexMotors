@@ -595,8 +595,8 @@ animation: headingMask linear both;
     }
   
 .box-container iframe{
-      max-width: 300px auto;
-      max-height: 300px auto;
+      max-width: 250px auto;
+      max-height: 250px auto;
       margin-right: 0%;
       margin-left: 20%;
     }
