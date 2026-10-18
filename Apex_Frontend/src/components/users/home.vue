@@ -599,6 +599,7 @@ animation: headingMask linear both;
     }
     .contact .box-container .ftr-link{
       background-size: 300px auto;
+      width: 100%;
     }
    
   }
