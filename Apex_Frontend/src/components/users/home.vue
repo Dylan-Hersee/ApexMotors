@@ -601,6 +601,7 @@ animation: headingMask linear both;
       padding: 0%; 
     }
     .contact .box-container .ftr-link{
+      position: relative;
       background-size: 300px auto;
       width: 100%;
       animation: none;
