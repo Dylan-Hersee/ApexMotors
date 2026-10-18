@@ -143,7 +143,8 @@ export default {
         </div>
       </div>
       </div>
-     
+    </div>
+    <div class="content">
       <div class="contact">
         <div class="contact-input">
           <div><h1 class="contactHeader">Contact Us</h1></div>
@@ -199,7 +200,8 @@ export default {
           </div>
         </footer>
       </div>
-    </div>
+      </div> 
+    
   </div>
 </template>
 
@@ -515,7 +517,7 @@ animation: headingMask linear both;
 }
 .ftr-link{
   width: 80%;
-  color: hsl(0, 78%, 42%);
+  color: hsl(0, 0%, 84%);
   display: flex;
   margin-top: 5rem auto 0;
   justify-content: center;
@@ -540,6 +542,7 @@ animation: headingMask linear both;
     .content{
       position: relative;
       z-index: 1;
+      width: 100%;
     } 
     .hero-wrapper {
     background-size: 300px auto;
