@@ -595,8 +595,10 @@ animation: headingMask linear both;
     .ftr-link a{
       margin-left: 5px;
       align-items: center;
-      padding: 0%;
-      
+      padding: 0%; 
+    }
+    .contact .box-container .ftr-link{
+      background-size: 300px auto;
     }
    
   }
