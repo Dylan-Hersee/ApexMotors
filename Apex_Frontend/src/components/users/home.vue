@@ -536,7 +536,7 @@ animation: headingMask linear both;
     margin: 2rem;
 }
 
-@media (max-width: 668px) {
+@media (max-width: 768px) {
     .content{
       position: relative;
       z-index: 1;
