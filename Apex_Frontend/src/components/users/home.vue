@@ -440,6 +440,7 @@ export default {
 .contact-input{
   flex: 1;
   margin-left: 25px;
+  max-width: 300px;
   animation: appear linear;
   animation-timeline: view();
 }
@@ -455,7 +456,8 @@ export default {
 .openHours{
   display: flex;
   flex-direction: column;
-  width:50%;
+  width: 100%;
+  
   animation: appear 5s linear;
 }
 .opening{
