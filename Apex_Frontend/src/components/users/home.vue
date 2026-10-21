@@ -50,6 +50,7 @@ export default {
 
 <template>
   <div class="page-wrapper">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <div class="hero-wrapper">
     <div class="nav-container">
       <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
