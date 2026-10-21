@@ -133,10 +133,13 @@ export default {
     v-if="vehicle.images && vehicle.images.length > 0"
     :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
           <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
-          <p>Make: {{ vehicle.make }}</p>
-          <span>Year: {{ vehicle.year }}</span>
-          <span>Milage: {{ vehicle.milage }}</span>
-          <span>Price: {{ vehicle.price }}</span>
+          <div class="vehicleDetails">
+          <p>Make: <br> {{ vehicle.make }}</p>
+          <p>Model: <br> {{ vehicle.model }}</p>
+          <p>Year: <br>{{ vehicle.year }}</p>
+          <p>Milage: <br>{{ vehicle.milage }}</p>
+          <p>Price: <br> {{ vehicle.price }}</p>
+          </div>
           </router-link>
         </div>
       </div>
@@ -537,7 +540,7 @@ animation: headingMask linear both;
       position: relative;
       z-index: 1;
     } 
- 
+   
     .navbar{
         backdrop-filter: none;
     }
@@ -583,8 +586,31 @@ animation: headingMask linear both;
       margin-left: 5px;
       align-items: center;
       padding: 0%;
-      
     }
+
+    .feature-container img{
+      height: 50%;
+      width: 100%;
+      border-radius: 10% 10% 0 0;
+    }
+    .card-container{
+      flex: 0 0 35%;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      border-radius: 10%;
+    }
+    .vehicleDetails{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 10px;  
+      align-items: start;
+    }
+    .vehicleDetails > *{
+      margin: 0;
+      line-height: 1.3;
+    }
+   
   }
 
 </style>

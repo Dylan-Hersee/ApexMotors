@@ -51,20 +51,20 @@ export default {
 <template>
   <div class="page-wrapper">
     <div class="hero-wrapper">
-    <div class="nav-container">
-      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
-       <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
-      <button class="nav-toggle">
+    <div class="nav-container" >
+      <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }" class="navbar">
+       <router-link :to="{path: `/testHome`, state: { testHome }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
+       <button class="nav-toggle">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-      </button>
+       </button>
        <ul class="nav-links">
-        <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
-        <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
-        <li><router-link :to="{path: `/trade-in`, state: { TradeIn }}">Trade-in</router-link></li>
-        <li><router-link :to="{path: `/Contact`, state: { Contact }}">Contact</router-link></li>
-        <li><router-link :to="{path: `/about`, state: { About }}">About</router-link></li>
+        <li><a href="">Stock</a></li>
+        <li><a href="">Finance</a></li>
+        <li><a href="">Trade-in</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">About</a></li>
       </ul>
       </nav>
     </div>
@@ -130,20 +130,23 @@ export default {
     <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
     <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
         <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
-          <router-link :to="{ path: `/vehicles/${vehicle.reg}`, state: { vehicle } }" class="router-link">
+          <router-link :to="{ path: `/testVehicles/${vehicle.reg}`, state: { testVehicle } }" class="router-link">
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
-    :src="`https://apexmotors-7wrf.onrender.com${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
+    :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
           <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
-          <p>Make: {{ vehicle.make }}</p>
-          <span>Year: {{ vehicle.year }}</span>
-          <span>Milage: {{ vehicle.milage }}</span>
-          <span>Price: {{ vehicle.price }}</span>
+          <div class="vehicleDetails">
+          <p>Make: <br> {{ vehicle.make }}</p>
+          <p>Model: <br> {{ vehicle.model }}</p>
+          <p>Year: <br>{{ vehicle.year }}</p>
+          <p>Milage: <br>{{ vehicle.milage }}</p>
+          <p>Price: <br> {{ vehicle.price }}</p>
+          </div>
           </router-link>
         </div>
       </div>
       </div>
-    </div>
+      </div>
       <div class="contact">
         <div class="contact-input">
           <div><h1 class="contactHeader">Contact Us</h1></div>
@@ -169,13 +172,13 @@ export default {
       <div class="openHours">
         <h1>Opening Hours</h1>
         <ul class="opening">
-          <li><span class="day">Monday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Tuesday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Wednesday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Thursday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Friday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Saturday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Sunday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Monday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Tuesday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Wednesday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Thursday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Friday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Saturday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Sunday: </span><span class="hours"> By Appointment Only</span></li>
         </ul>
       </div>
       <div class="loaction-box" v-motion-fade>
@@ -199,7 +202,7 @@ export default {
           </div>
         </footer>
       </div>
-  </div>
+    </div>
 </template>
 
 <style>
@@ -283,17 +286,14 @@ export default {
 }
 .card-container p{
   text-align: justify;
-  padding-left: 5%;
+  padding-left: 0%;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 40px;
-  color: #161515;
+  margin-top: 0px;
+  color: #fffcfc;
 }
 .card-container span{
   text-align: justify;
   padding-left: 5%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #030303;
-  display: flex;
   margin-top: 20px;
 
 }
@@ -568,6 +568,7 @@ animation: headingMask linear both;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.9);
         backdrop-filter: blur(10px);
     }
+    
     .nav-toggle {
         display: block;
         z-index: 999;
@@ -590,6 +591,9 @@ animation: headingMask linear both;
     }
   .box-container{
     flex-wrap: wrap;
+  }
+  .day{
+    margin-right: 2px;
   }
 .box-container iframe{
       max-width: 100%;
@@ -617,6 +621,25 @@ animation: headingMask linear both;
       transform: none;
       opacity: 1;
     }
+
+     .card-container{
+      flex: 0 0 35%;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      border-radius: 10%;
+    }
+    .vehicleDetails{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 10px;  
+      align-items: start;
+    }
+    .vehicleDetails > *{
+      margin: 0;
+      line-height: 1.3;
+    }
+   
    
   }
 
