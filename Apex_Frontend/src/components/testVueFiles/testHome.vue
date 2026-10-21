@@ -594,7 +594,7 @@ animation: headingMask linear both;
       border-radius: 10% 10% 0 0;
     }
     .card-container{
-      flex: 0 0 35%;
+      flex: 0 0 50%;
       height: auto;
       min-height: 0;
       overflow: visible;
@@ -603,7 +603,7 @@ animation: headingMask linear both;
     .vehicleDetails{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 6px 10px;  
+      gap: 6px 0px;  
       align-items: start;
     }
     .vehicleDetails > *{

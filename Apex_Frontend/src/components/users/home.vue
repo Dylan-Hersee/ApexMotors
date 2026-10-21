@@ -623,7 +623,7 @@ animation: headingMask linear both;
     }
 
      .card-container{
-      flex: 0 0 35%;
+      flex: 0 0 50%;
       height: auto;
       min-height: 0;
       overflow: visible;
