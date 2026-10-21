@@ -6,7 +6,6 @@ html, body{
 }
 body{
     display: block;
-
 }
 #app{
     width: 100%;
@@ -22,7 +21,9 @@ body{
     transition: 0.3ms;   
 }
 .hero-wrapper{
-    
+width: 100%;
+box-sizing: border-box;
+overflow-x: hidden;
 }
 .nav-toggle{
     display: none;
