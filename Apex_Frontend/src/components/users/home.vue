@@ -204,8 +204,6 @@ export default {
 
 <style>
 
-*{outline: 1px solid red;}
-
 #header h1{
   text-align: center;
 }
@@ -590,13 +588,19 @@ animation: headingMask linear both;
       width: 100%;
       background-size: cover;
     }
-  
+  .box-container{
+    flex-wrap: wrap;
+  }
 .box-container iframe{
-      max-width: 250px auto;
-      max-height: 250px auto;
-      margin-right: 0%;
-      margin-left: 20%;
+      max-width: 100%;
+      max-height: 100%;
+      height: 300px;
+      margin: 0;
     }
+    .searchFilter form{
+      flex-wrap: wrap;
+    }
+    
     .locationHead{
       margin-left: 20%;
     }
