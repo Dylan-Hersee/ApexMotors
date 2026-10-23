@@ -179,7 +179,7 @@ export default {
           <li><span class="day">Sunday: </span><span class="hours"> By Appointment Only</span></li>
         </ul>
       </div>
-      <div class="loaction-box" v-motion-fade>
+      <div class="location-box" v-motion-fade>
       <section>
           <h1 class="locationHead">Our Location </h1>
           <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38126.14891313065!2d-6.435116356405593!3d53.32742476309685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdublin%2022!5e0!3m2!1sen!2sie!4v1789592052187!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -364,34 +364,32 @@ export default {
   border: #4b4b4b;
   border-radius: 8px;
   box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
-  margin-bottom: 1rem;
-
-  
+  margin-bottom: 1rem;  
 }
 
+
 #name{ 
-  width: 45%;
-  max-width: 205px;
+  max-width: 75%;
+ 
   
 }
 
 #phone{
-  width: 45%;
-  max-width: 205px;
+  max-width: 75%;
+  
  
 
 }
 #message{
-  padding-bottom: 50px;
-  width: 95%;
+  padding-bottom: 100px;
+  max-width: 100%;
   margin-right: 5%;
 
 }
 #email{
-  width: 95%;
+  max-width: 100%;
   margin-right: 5%;
   max-width: 250px;
-  
 }
 
 .contact-bt {
@@ -437,15 +435,15 @@ export default {
 .contact-input{
   flex: 1;
   margin-left: 25px;
-  max-width: 300px;
+  max-width: 50%;
   animation: appear linear;
   animation-timeline: view();
 }
 .contact-details{
-  flex: 1;
   color: #d5d5d5;
   animation: appear linear;
   animation-timeline: view();
+  margin: 0;
 }
 .social{
   margin: 10px;
@@ -503,19 +501,16 @@ animation: headingMask linear both;
   border-radius: 8px;
 
 }
-.locationHead{
-  margin-left: 50%;
-}
 
 .ftr-container{
   margin-bottom: 0;
 }
 .ftr-link{
-  width: 80%;
+  width: 100%;
   color: hsl(0, 0%, 84%);
   display: flex;
-  margin-top: 5rem auto 0;
-  justify-content: center;
+  margin-top: 1rem;
+  align-items: center;
   flex-wrap: wrap;
 }
 .ftr-link a{
@@ -594,8 +589,8 @@ animation: headingMask linear both;
       max-width: 300px;
       max-height: 100%;
       max-height: 300px;
-      margin: 0;
-    }
+      margin-left: 20px;
+  }
     .searchFilter form{
       flex-wrap: wrap;
     }
@@ -640,7 +635,8 @@ animation: headingMask linear both;
     .ftr-link{
       align-items: center;
     }
-   
+
+    
    
   }
 

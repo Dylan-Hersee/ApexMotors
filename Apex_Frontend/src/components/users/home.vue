@@ -181,7 +181,7 @@ export default {
           <li><span class="day">Sunday</span><span class="hours"> By Appointment Only</span></li>
         </ul>
       </div>
-      <div class="loaction-box" v-motion-fade>
+      <div class="location-box" v-motion-fade>
       <section>
           <h1 class="locationHead">Our Location </h1>
           <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38126.14891313065!2d-6.435116356405593!3d53.32742476309685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdublin%2022!5e0!3m2!1sen!2sie!4v1789592052187!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -278,25 +278,19 @@ export default {
 .card-container{
   border-radius: 20px;
   flex: 0 0 25%;
-  background: #bcbcbc;
+  background: #f7f3f3;
   box-shadow: 0px 0px 84px 0px rgba(160, 160, 160, 0.31);
   animation: appear 5s linear;
   margin: 2%;
-  overflow: scroll;
   padding-bottom: 0;
 }
 .card-container p{
   text-align: justify;
-  padding-left: 0%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 0px;
-  color: #fffcfc;
-}
-.card-container span{
-  text-align: justify;
   padding-left: 5%;
-  margin-top: 20px;
-
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 5px;
+  color: #272727;
 }
 
 .router-link{
@@ -371,34 +365,32 @@ export default {
   border: #4b4b4b;
   border-radius: 8px;
   box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
-  margin-bottom: 1rem;
-
-  
+  margin-bottom: 1rem;  
 }
 
+
 #name{ 
-  width: 45%;
-  max-width: 205px;
+  max-width: 75%;
+ 
   
 }
 
 #phone{
-  width: 45%;
-  max-width: 205px;
+  max-width: 75%;
+  
  
 
 }
 #message{
-  padding-bottom: 50px;
-  width: 95%;
+  padding-bottom: 100px;
+  max-width: 100%;
   margin-right: 5%;
 
 }
 #email{
-  width: 95%;
+  max-width: 100%;
   margin-right: 5%;
   max-width: 250px;
-  
 }
 
 .contact-bt {
@@ -444,15 +436,15 @@ export default {
 .contact-input{
   flex: 1;
   margin-left: 25px;
-  max-width: 300px;
+  max-width: 50%;
   animation: appear linear;
   animation-timeline: view();
 }
 .contact-details{
-  flex: 1;
   color: #d5d5d5;
   animation: appear linear;
   animation-timeline: view();
+  margin: 0;
 }
 .social{
   margin: 10px;
@@ -461,8 +453,8 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  
   animation: appear 5s linear;
-  padding-right: 10px;
 }
 .opening{
   list-style: none;
@@ -510,21 +502,17 @@ animation: headingMask linear both;
   border-radius: 8px;
 
 }
-.locationHead{
-  margin-left: 50%;
-}
 
 .ftr-container{
   margin-bottom: 0;
 }
 .ftr-link{
-  width: 80%;
+  width: 100%;
   color: hsl(0, 0%, 84%);
   display: flex;
-  margin-top: 5rem auto 0;
-  justify-content: center;
+  margin-top: 1rem;
+  align-items: center;
   flex-wrap: wrap;
-  background-color: #030303;
 }
 .ftr-link a{
     align-items: center;
@@ -541,6 +529,7 @@ animation: headingMask linear both;
     margin: 2rem;
 }
 
+
 @media screen and (max-width: 768px) {
     .content{
       position: relative;
@@ -550,7 +539,7 @@ animation: headingMask linear both;
       min-width: none;
     } 
     .hero-wrapper {
-    background-size: 300px auto;
+    background-image: -moz-radial-gradient();
     padding-bottom: 10%;
     }
  
@@ -598,11 +587,11 @@ animation: headingMask linear both;
     margin-right: 2px;
   }
 .box-container iframe{
-      max-width: 100%;
+      max-width: 300px;
       max-height: 100%;
-      height: 300px;
-      margin: 0;
-    }
+      max-height: 300px;
+      margin-left: 20px;
+  }
     .searchFilter form{
       flex-wrap: wrap;
     }
@@ -624,12 +613,15 @@ animation: headingMask linear both;
       opacity: 1;
     }
 
-     .card-container{
-      flex: 0 0 50%;
+     .card-container {
+      flex: 0 50%;
       height: auto;
       min-height: 0;
-      overflow: visible;
-      border-radius: 10%;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .card-container p{
+      padding-top: 50px;
     }
     .vehicleDetails{
       display: grid;
@@ -641,21 +633,12 @@ animation: headingMask linear both;
       margin: 0;
       line-height: 1.3;
     }
+    .ftr-link{
+      align-items: center;
+    }
 
-    .opening{
-  list-style: none;
-  padding: 5%;
-  width: 75%;
-  max-width: 300px;
-  color: #bababa;
-  margin-left: 30px;
-}
-.hours{
-  padding-right: 30px;
-}
-   
+    
    
   }
 
 </style>
-
