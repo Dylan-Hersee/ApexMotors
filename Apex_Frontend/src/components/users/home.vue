@@ -187,9 +187,7 @@ export default {
           <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38126.14891313065!2d-6.435116356405593!3d53.32742476309685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdublin%2022!5e0!3m2!1sen!2sie!4v1789592052187!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </section>
       </div>
-      </div>
-  </div>
-  <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
+      <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
         <footer>
           <div class="ftr-link">
               <a href="">Stock</a>
@@ -203,6 +201,9 @@ export default {
           </div>
         </footer>
       </div>
+      </div>
+  </div>
+  
 </template>
 
 <style>
