@@ -8,10 +8,9 @@ html, body{
 body{
     display: block;
 }
-template{
+html{
+    color-scheme: dark;
     background-color: #000000;
-    max-height: 700px;
-    overflow-y: visible;
 }
 #app{
     width: 100%;
