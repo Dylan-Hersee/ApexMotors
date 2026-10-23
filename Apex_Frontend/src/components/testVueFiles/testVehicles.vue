@@ -224,7 +224,7 @@ export default {
 <style scoped>
 .vehicle-page-wrapper{
     background-color: #000000;
-    
+    overflow-y: visible;
 }
 .slider{
    display: flex;

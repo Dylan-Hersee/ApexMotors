@@ -230,6 +230,12 @@ export default {
   mask-image: linear-gradient(to bottom, Black 95%, transparent 100%);
   padding-bottom: 10%;
 }
+.content{
+  position: relative;
+  background-size: cover;
+  background-color: #030303;
+  box-sizing: border-box;
+}
 .searchFilter form{
   display: flex;
   flex-direction: row;
@@ -281,18 +287,10 @@ export default {
 .card-container p{
   text-align: justify;
   padding-left: 5%;
+  align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 40px;
-  color: #161515;
-}
-.card-container span{
-  text-align: justify;
-  padding-left: 5%;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #030303;
-  display: flex;
-  margin-top: 20px;
-
+  margin-top: 5px;
+  color: #272727;
 }
 
 .router-link{
@@ -440,6 +438,7 @@ export default {
 .contact-input{
   flex: 1;
   margin-left: 25px;
+  max-width: 300px;
   animation: appear linear;
   animation-timeline: view();
 }
@@ -455,7 +454,8 @@ export default {
 .openHours{
   display: flex;
   flex-direction: column;
-  width:50%;
+  width: 100%;
+  
   animation: appear 5s linear;
 }
 .opening{
@@ -502,9 +502,9 @@ animation: headingMask linear both;
   max-width: 500px;
   max-height:400px;
   border-radius: 8px;
-  margin-left: 50%;
+
 }
-.location{
+.locationHead{
   margin-left: 50%;
 }
 
@@ -535,12 +535,19 @@ animation: headingMask linear both;
 }
 
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 768px) {
     .content{
       position: relative;
       z-index: 1;
+      width: 100%;
+      flex: 1;
+      min-width: none;
     } 
-   
+    .hero-wrapper {
+    background-image: -moz-radial-gradient();
+    padding-bottom: 10%;
+    }
+ 
     .navbar{
         backdrop-filter: none;
     }
@@ -557,6 +564,7 @@ animation: headingMask linear both;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.9);
         backdrop-filter: blur(10px);
     }
+    
     .nav-toggle {
         display: block;
         z-index: 999;
@@ -573,27 +581,44 @@ animation: headingMask linear both;
      .nav-toggle.active .bar:nth-child(3){
       transform: translateY(-8px) rotate(-45deg);
     }
-    .box-container iframe{
-      max-width: 250px;
-      max-height: 250px;
-      margin-right: 0%;
-      margin-left: 20%;
+    .box-container .contact .ftr-link{
+      width: 100%;
+      background-size: cover;
     }
+  .box-container{
+    flex-wrap: wrap;
+  }
+  .day{
+    margin-right: 2px;
+  }
+.box-container iframe{
+      max-width: 300px;
+      max-height: 100%;
+      max-height: 300px;
+      margin: 0;
+    }
+    .searchFilter form{
+      flex-wrap: wrap;
+    }
+    
     .locationHead{
       margin-left: 20%;
     }
     .ftr-link a{
       margin-left: 5px;
       align-items: center;
-      padding: 0%;
+      padding: 0%; 
+    }
+    .contact .box-container .ftr-link{
+      position: relative;
+      background-size: 300px auto;
+      width: 100%;
+      animation: none;
+      transform: none;
+      opacity: 1;
     }
 
-    .feature-container img{
-      height: 50%;
-      width: 100%;
-      border-radius: 10% 10% 0 0;
-    }
-    .card-container{
+     .card-container{
       flex: 0 0 50%;
       height: auto;
       min-height: 0;
@@ -603,13 +628,17 @@ animation: headingMask linear both;
     .vehicleDetails{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 6px 0px;  
+      gap: 6px 10px;  
       align-items: start;
     }
     .vehicleDetails > *{
       margin: 0;
       line-height: 1.3;
     }
+    .ftr-link{
+      align-items: center;
+    }
+   
    
   }
 
