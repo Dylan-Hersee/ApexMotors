@@ -639,6 +639,15 @@ animation: headingMask linear both;
       margin: 0;
       line-height: 1.3;
     }
+
+    .opening{
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 300px;
+  color: #bababa;
+  margin-left: 30px;
+}
    
    
   }
