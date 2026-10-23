@@ -277,11 +277,10 @@ export default {
 .card-container{
   border-radius: 20px;
   flex: 0 0 25%;
-  background: #bcbcbc;
+  background: #f7f3f3;
   box-shadow: 0px 0px 84px 0px rgba(160, 160, 160, 0.31);
   animation: appear 5s linear;
   margin: 2%;
-  overflow: scroll;
   padding-bottom: 0;
 }
 .card-container p{
@@ -618,12 +617,15 @@ animation: headingMask linear both;
       opacity: 1;
     }
 
-     .card-container{
-      flex: 0 0 50%;
+     .card-container {
+      flex: 0 50%;
       height: auto;
       min-height: 0;
-      overflow: visible;
-      border-radius: 10%;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .card-container p{
+      padding-top: 50px;
     }
     .vehicleDetails{
       display: grid;
