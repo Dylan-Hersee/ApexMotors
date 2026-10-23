@@ -642,8 +642,8 @@ animation: headingMask linear both;
 
     .opening{
   list-style: none;
-  padding: 0;
-  width: 100%;
+  padding: 5%;
+  width: 75%;
   max-width: 300px;
   color: #bababa;
   margin-left: 30px;
