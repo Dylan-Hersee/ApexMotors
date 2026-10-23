@@ -8,6 +8,10 @@ html, body{
 body{
     display: block;
 }
+template{
+    background-color: #000000;
+    max-height: 700px;
+}
 #app{
     width: 100%;
     max-width: none;
