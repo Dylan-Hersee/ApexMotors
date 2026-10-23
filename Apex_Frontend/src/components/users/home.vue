@@ -460,8 +460,8 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  
   animation: appear 5s linear;
+  padding-right: 10px;
 }
 .opening{
   list-style: none;
