@@ -11,6 +11,7 @@ body{
 template{
     background-color: #000000;
     max-height: 700px;
+    overflow-y: visible;
 }
 #app{
     width: 100%;
