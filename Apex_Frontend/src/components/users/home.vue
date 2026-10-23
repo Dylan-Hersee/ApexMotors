@@ -188,7 +188,8 @@ export default {
       </section>
       </div>
       </div>
-      <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
+  </div>
+  <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
         <footer>
           <div class="ftr-link">
               <a href="">Stock</a>
@@ -202,7 +203,6 @@ export default {
           </div>
         </footer>
       </div>
-  </div>
 </template>
 
 <style>
@@ -523,6 +523,7 @@ animation: headingMask linear both;
   margin-top: 5rem auto 0;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #030303;
 }
 .ftr-link a{
     align-items: center;
