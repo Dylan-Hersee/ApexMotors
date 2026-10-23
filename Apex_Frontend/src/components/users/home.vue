@@ -648,6 +648,9 @@ animation: headingMask linear both;
   color: #bababa;
   margin-left: 30px;
 }
+.hours{
+  padding-right: 10px;
+}
    
    
   }
