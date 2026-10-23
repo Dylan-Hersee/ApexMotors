@@ -649,7 +649,7 @@ animation: headingMask linear both;
   margin-left: 30px;
 }
 .hours{
-  padding-right: 10px;
+  padding-right: 15px;
 }
    
    
