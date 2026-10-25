@@ -282,6 +282,7 @@ export default {
   animation: appear 5s linear;
   margin: 2%;
   padding-bottom: 0;
+  overflow: hidden;
 }
 .card-container p{
   text-align: justify;
