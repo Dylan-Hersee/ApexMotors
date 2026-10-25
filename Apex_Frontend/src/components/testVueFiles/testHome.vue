@@ -272,7 +272,8 @@ export default {
 }
 .Available_Stock img{
   overflow: hidden;
-  max-height: 50%;
+  max-height: 100%;
+  max-width: 100%;
 }
 .card-container{
   border-radius: 20px;
@@ -283,6 +284,13 @@ export default {
   margin: 2%;
   padding-bottom: 0;
   overflow: hidden;
+}
+.vehicleDetails{
+     display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 10px;  
+      align-items: start;
+      margin-top: 30px;
 }
 .card-container p{
   text-align: justify;
