@@ -281,7 +281,6 @@ export default {
   background: #f7f3f3;
   box-shadow: 0px 0px 84px 0px rgba(160, 160, 160, 0.31);
   animation: appear 5s linear;
-  margin: 2%;
   padding-bottom: 0;
   overflow: hidden;
 }
@@ -289,16 +288,12 @@ export default {
      display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 6px 10px;  
-      align-items: start;
-      margin-top: 30px;
 }
 .card-container p{
-  text-align: justify;
-  padding-left: 5%;
-  align-items: center;
+  text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: 5px;
-  color: #272727;
+  color: #080606;
+  padding: auto;
 }
 
 .router-link{
@@ -628,14 +623,13 @@ animation: headingMask linear both;
       overflow: hidden;
       border-radius: 20px;
     }
-    .card-container p{
-      padding-top: 50px;
-    }
+   
     .vehicleDetails{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 6px 10px;  
-      align-items: start;
+      text-align: center;
+      padding-bottom: 2.5%;
     }
     .vehicleDetails > *{
       margin: 0;
