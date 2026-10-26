@@ -381,11 +381,11 @@ export default {
 
 
 #name{ 
-  width: 40%;
+  width: 60%;
 }
 
 #phone{
-  width: 40%;
+  width: 60%;
   margin-right: 5%;
 }
 #message{
