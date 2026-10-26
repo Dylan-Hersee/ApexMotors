@@ -381,25 +381,21 @@ export default {
 
 
 #name{ 
-  max-width: 75%;
- 
-  
+  width: 40%;
 }
 
 #phone{
-  max-width: 75%;
-  
- 
-
+  width: 40%;
+  margin-right: 5%;
 }
 #message{
   padding-bottom: 100px;
-  max-width: 100%;
+  width: 100%;
   margin-right: 5%;
 
 }
 #email{
-  max-width: 75%;
+  width: 80%;
   margin-right: 5%;
 }
 
@@ -618,9 +614,6 @@ animation: headingMask linear both;
     }
     .ftr-link{
       align-items: center;
-    }
-    #email{
-      max-width: 75%;
     }
     
    
