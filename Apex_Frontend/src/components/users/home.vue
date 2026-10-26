@@ -560,9 +560,6 @@ animation: headingMask linear both;
   .contact .box-container{
     flex-wrap: wrap;
   }
-  .day{
-    margin-right: 10%;
-  }
  
 .box-container iframe{
       max-width: 300px;
@@ -602,18 +599,18 @@ animation: headingMask linear both;
       gap: 6px 10px;  
       align-items: start;
     }
+    .day{
+      margin-left: 0%;
+    }
     .vehicleDetails > *{
       margin: 0;
       line-height: 1.3;
-    }
-    .openHours{
-      margin-right: 0.2rem;
     }
     .ftr-link{
       align-items: center;
     }
     .hours{
-      margin-right: 0.7rem;
+      margin-right: 1rem;
     }
     
    
