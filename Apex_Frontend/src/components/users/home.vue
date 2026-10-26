@@ -399,7 +399,7 @@ export default {
 
 }
 #email{
-  max-width: 100%;
+  max-width: 80%;
   margin-right: 5%;
   max-width: 250px;
 }
