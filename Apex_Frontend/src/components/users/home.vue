@@ -471,7 +471,7 @@ export default {
 .opening li{
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 4px 0;
 }
 .box-container{
   display: flex;
