@@ -610,8 +610,7 @@ animation: headingMask linear both;
       line-height: 1.3;
     }
     .openHours{
-      margin: 0;
-      padding: 0.5rem;
+      margin-right: 0.2rem;
     }
     .ftr-link{
       align-items: center;
