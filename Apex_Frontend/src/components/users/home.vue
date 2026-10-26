@@ -619,7 +619,9 @@ animation: headingMask linear both;
     .ftr-link{
       align-items: center;
     }
-
+    #email{
+      max-width: 75%;
+    }
     
    
   }
