@@ -395,7 +395,7 @@ export default {
 
 }
 #email{
-  width: 80%;
+  width: 90%;
   margin-right: 5%;
 }
 
@@ -460,7 +460,6 @@ export default {
   flex-direction: column;
   width: 100%;  
   animation: appear 5s linear;
-  margin-right: 16rem;
 }
 .opening{
   list-style: none;
@@ -468,7 +467,6 @@ export default {
   width: 100%;
   max-width: 400px;
   color: #bababa;
-  margin-left: 16rem;
 }
 .opening li{
   display: flex;
@@ -563,7 +561,7 @@ animation: headingMask linear both;
     flex-wrap: wrap;
   }
   .day{
-    margin-right: 2px;
+    margin-right: 10%;
   }
  
 .box-container iframe{
@@ -580,9 +578,8 @@ animation: headingMask linear both;
       align-items: center;
       padding: 0%; 
     }
-    .contact .box-container .ftr-link{
+    .box-container .ftr-link{
       position: relative;
-      background-size: 300px auto;
       width: 100%;
       animation: none;
       transform: none;
@@ -614,6 +611,9 @@ animation: headingMask linear both;
     }
     .ftr-link{
       align-items: center;
+    }
+    .hours{
+      margin-right: 0.5rem;
     }
     
    
