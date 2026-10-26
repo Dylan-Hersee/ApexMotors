@@ -23,7 +23,8 @@ const routes = [
   { path: '/stock', name: 'stock', component: Stock},
   { path: '/finance', name: 'finance', component: Finance},
   {path: '/test', name: 'testHome', component: testHome}, 
-  {path: '/testVehicle', name: 'testVehicle', component: testVehicle}
+  {path: '/testVehicle/:reg', name: 'testVehicle', component: testVehicle},
+  {path: '/addVehicle', name:'addVehicle', component:AddVehicle }
 ]
 
 const router = createRouter({

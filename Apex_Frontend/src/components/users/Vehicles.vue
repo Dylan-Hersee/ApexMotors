@@ -5,9 +5,24 @@ import Contact from './Contact.vue';
 import Finance from './Finance.vue';
 import Stock from './Stock.vue';
 import TradeIn from './TradeIn.vue';
+import { onMounted } from 'vue';
 
 
 export default {
+     setup(){
+         onMounted(() => {
+            const navbarToggle = document.querySelector('.nav-toggle');
+            const navbarMenu = document.querySelector('.nav-links');
+
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', () => {
+                    navbarToggle.classList.toggle('active');
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+        })
+    },
+
    data(){
     return{
 
@@ -50,9 +65,15 @@ export default {
 
 <template>
     <div class="vehicle-page-wrapper">
-        <div class="vehicle-nav-container" >
+        <div class="nav-container" >
       <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
       <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
+      <button class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+       </button>
+
       <ul class="nav-links">
         <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
         <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
@@ -224,7 +245,7 @@ export default {
     </div>
    
 </template>
-<style scoped>
+<style>
 .vehicle-page-wrapper{
     background-color: #000000;
     
@@ -307,16 +328,115 @@ export default {
     }
 
     @media screen and (max-width: 768px) {
-        .card-container{
-            flex-direction: column;
-            width: 100%;
-        }
-        .detail_container{
-            width: 100%;
-            max-width: 100%;
-            margin-left: 0;
-        }
+    .content{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      flex: 1;
+      min-width: none;
+    } 
+    .hero-wrapper {
+    background-image: -moz-radial-gradient();
+    padding-bottom: 10%;
     }
+ 
+    .navbar{
+        backdrop-filter: none;
+    }
+    .nav-container .nav-links{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-toggle {
+        display: block;
+        z-index: 999;
+    }
+    .nav-container .nav-links.active{
+      display: flex;
+    }
+    .nav-toggle.active .bar:nth-child(2){
+      opacity: 0;
+    }
+     .nav-toggle.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+     .nav-toggle.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .box-container .contact .ftr-link{
+      width: 100%;
+      background-size: cover;
+    }
+  .box-container{
+    flex-wrap: wrap;
+  }
+  .day{
+    margin-right: 2px;
+  }
+.box-container iframe{
+      max-width: 300px;
+      max-height: 100%;
+      max-height: 300px;
+      margin-left: 20px;
+  }
+    .searchFilter form{
+      flex-wrap: wrap;
+    }
+    
+    .locationHead{
+      margin-left: 20%;
+    }
+    .ftr-link a{
+      margin-left: 5px;
+      align-items: center;
+      padding: 0%; 
+    }
+    .contact .box-container .ftr-link{
+      position: relative;
+      background-size: 300px auto;
+      width: 100%;
+      animation: none;
+      transform: none;
+      opacity: 1;
+    }
+
+     .card-container {
+      flex: 0 50%;
+      height: auto;
+      min-height: 0;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .card-container p{
+      padding-top: 30px;
+    }
+    .vehicleDetails{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 10px;  
+      align-items: start;
+    }
+    .vehicleDetails > *{
+      margin: 0;
+      line-height: 1.3;
+    }
+    .ftr-link{
+      align-items: center;
+    }
+
+    
+   
+}
 
     @media only screen and (max-width: 1200px){
         

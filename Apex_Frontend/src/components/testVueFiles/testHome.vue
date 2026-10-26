@@ -34,8 +34,6 @@ export default {
                     navbarMenu.classList.toggle('active');
                 });
             }
-
-            getVehicles();
         });
 
         return { vehicles, getVehicles, getImages };
@@ -128,7 +126,7 @@ export default {
     <div id="header" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:500} }"> <h1>Featured Stock</h1></div>
     <div class = "Available_Stock" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:700} }">
         <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
-          <router-link :to="{ path: `/testVehicles/${vehicle.reg}`, state: { testVehicle } }" class="router-link">
+          <router-link :to="{ path: `/testVehicle/${vehicle.reg}`, state: { testVehicle } }" class="router-link">
           <img 
     v-if="vehicle.images && vehicle.images.length > 0"
     :src="`http://localhost:3000${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>

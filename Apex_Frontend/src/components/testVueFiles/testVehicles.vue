@@ -1,5 +1,6 @@
 <script lang="js">
 import testHome from './testHome.vue'
+import { onMounted } from 'vue';
 
 
 
@@ -11,6 +12,7 @@ export default {
         reg: this.$route.params.reg, 
         vehicle: {},
         currentImg: 0
+
     }
    }, 
    created(){
@@ -22,6 +24,7 @@ export default {
     }).catch(err => console.error(err))
 
     },
+    
     methods:{
     
     
@@ -40,15 +43,18 @@ export default {
             this.currentImg = this.vehicle.images.length - 1
         }
     }
+
     }
-    } 
-   
+    
+} 
+
 </script>
 <template>
     <div class="vehicle-page-wrapper">
         <div class="vehicle-nav-container" >
       <nav v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
       <router-link :to="{path: `/home`, state: { Homeview }}"><img src="../images/home-logo.png" alt="" width = "200px" height="100px"></router-link>
+      
       <ul class="nav-links">
         <li><router-link :to="{path: `/stock`, state: { Stock }}">Stock</router-link></li>
         <li><router-link :to="{path: `/finance`, state: { Finance }}">Finance</router-link></li>
@@ -275,14 +281,7 @@ export default {
     .fade-enter-from, .fade-leave-to {
         opacity: 0;
     }
-    .card-container{
-       display: flex;
-       flex-direction: row;
-       width: 50%;
-       animation: appear 5s linear;
-       font-family: 'Roboto', sans-serif;
-       padding:0;
-    }
+
     .detail_container{
         list-style: none;
         padding: 0;
@@ -303,15 +302,55 @@ export default {
     }
 
     @media screen and (max-width: 768px) {
-        .card-container{
-            flex-direction: column;
-            width: 100%;
-        }
-        .detail_container{
-            width: 100%;
-            max-width: 100%;
-            margin-left: 0;
-        }
+     .content{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      flex: 1;
+      min-width: none;
+    } 
+    .hero-wrapper {
+    background-image: -moz-radial-gradient();
+    padding-bottom: 10%;
+    }
+ 
+    .navbar{
+        backdrop-filter: none;
+    }
+    .nav-container .nav-links{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-toggle {
+        display: block;
+        z-index: 999;
+    }
+    .nav-container .nav-links.active{
+      display: flex;
+    }
+    .nav-toggle.active .bar:nth-child(2){
+      opacity: 0;
+    }
+     .nav-toggle.active .bar:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+     .nav-toggle.active .bar:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .box-container .contact .ftr-link{
+      width: 100%;
+      background-size: cover;
+    }
     }
 
     @media only screen and (max-width: 1200px){
