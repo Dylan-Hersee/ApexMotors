@@ -99,13 +99,11 @@ export default {
                 </transition>                
                 <button class="btn" id="btn-right" @click="next()">&#707</button>
             </div>
-            
-                
-        <div class="card-container">
             <div class="detail_container" v-if="vehicle">
                 <div class="reg">
                 <h1> {{ vehicle.reg }}</h1>
                 </div>
+                <div class="sub_header"><h2>Description</h2></div>
                 <div class="contents">
                     <div class="make">
                         <p class="car_details"> Make <span>{{ vehicle.make }}</span></p>
@@ -234,11 +232,10 @@ export default {
                 </div>
             </div>
             <div id="desc">
-                <div class="sub_header"><h2>Description</h2></div>
                 <div class="description">{{ description }}</div>
             </div>
             </div>
-        </div>
+        
          <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
         <footer>
           <div class="ftr-link">
@@ -256,6 +253,10 @@ export default {
 </template>
 
 <style scoped>
+
+.detail_container h1{
+    text-align: center;
+}
 
 .slider{
    display: flex;
@@ -281,10 +282,10 @@ export default {
     } 
 
     #btn-left{
-        margin-right: -6rem;
+        margin-right: -3.5rem;
     }
     #btn-right{
-        margin-left: -5rem;
+        margin-left: -2rem;
     }
     
     
@@ -316,9 +317,9 @@ export default {
     }
     .detail_container{
         list-style: none;
-        padding: 0;
+        padding: 0.5rem;
         width: 100%;
-        max-width: 400px;
+        max-width: 900px;
         color: #c12424;
         margin-left: 25px;
         flex-direction: row;
@@ -336,7 +337,7 @@ export default {
     }
 
     @media screen and (max-width: 768px) {
-    .content{
+    .contents{
       position: relative;
       z-index: 1;
       width: 100%;
@@ -393,7 +394,6 @@ export default {
     }
     .ftr-link{
       position: relative;
-      background-size: 300px auto;
       width: 100%;
       animation: none;
       transform: none;
@@ -410,10 +410,21 @@ export default {
       margin: 0;
       line-height: 1.3;
     }
+    #btn-left, #btn-right{
+        font-size: 3rem;
+    }
+    #btn-left{
+        margin: -2rem;
+    }
+    #btn-right{
+        margin: -1.1rem;
+    }
     .ftr-link{
       align-items: center;
     }
-
+    .detail_container{
+        margin: 0;
+    }
     
    
 }

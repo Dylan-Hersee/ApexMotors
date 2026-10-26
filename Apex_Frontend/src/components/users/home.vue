@@ -512,31 +512,6 @@ animation: headingMask linear both;
   border-radius: 8px;
 }
 
-.ftr-container{
-  margin-bottom: 0;
-}
-.ftr-link{
-  width: 100%;
-  color: hsl(0, 0%, 84%);
-  display: flex;
-  margin-top: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.ftr-link a{
-    align-items: center;
-    font-size: 1.45rem;
-    font-weight:500;
-    text-decoration:none;
-    color: rgb(228, 228, 228);
-    transition: all 0.3s ease;
-    border-radius: 0.5rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    list-style:none;
-    gap: 2rem;
-    padding-right: 5px;
-    margin: 2rem;
-}
 
 
 @media screen and (max-width: 768px) {
