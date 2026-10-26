@@ -164,8 +164,8 @@ export default {
       <h1> Any Questions? </h1>
       <p> Email: </p>
       <p> Phone: </p>
-      <a href="" class="social"><img src="../images/insta.png" alt="" width="100px"></a>
-      <a href="" class="social"><img src="../images/TikTok.png" alt="" width="100px"></a>
+      <a href="https://www.instagram.com/autos_apex?mdxt=MnoxNXRoZGQxMHdz" class="social"><img src="../images/insta.png" alt="" width="100px"></a>
+      <a href="https://www.tiktok.com/@apex.autos4?_r=1&_t=ZN-9At3XrKvUX8" class="social"><img src="../images/TikTok.png" alt="" width="100px"></a>
       </div>
       </div>
       <div class="box-container">
@@ -196,8 +196,8 @@ export default {
               <a href="">Trade-in</a>
               <a href="">Contact</a>
               <a href="">About</a>
-              <a href="" class="social"><img src="../images/insta.png" alt="" width="50px"></a>
-              <a href="" class="social"><img src="../images/TikTok.png" alt="" width="50px"></a>
+              <a href="https://www.instagram.com/autos_apex?mdxt=MnoxNXRoZGQxMHdz" class="social"><img src="../images/insta.png" alt="" width="50px"></a>
+              <a href="https://www.tiktok.com/@apex.autos4?_r=1&_t=ZN-9At3XrKvUX8" class="social"><img src="../images/TikTok.png" alt="" width="50px"></a>
           
           </div>
         </footer>
