@@ -92,13 +92,11 @@ export default {
                     <img v-for="(image, i) in vehicle.images" 
                     :key="image.images_url"
                     :src="`https://apexmotors-7wrf.onrender.com${image.image_url}`"
-                    :alt="`${vehicle.reg}`" style="width: 900px; height: 400px;" v-show="currentImg === i">
+                    :alt="`${vehicle.reg}`" style="max-width: 900px; max-height: 400px;" v-show="currentImg === i">
                     
                     </div>
                 </div>
-                </transition>
-                
-                
+                </transition>                
                 <button class="btn" id="btn-right" @click="next()">&#707</button>
             </div>
             
@@ -241,15 +239,24 @@ export default {
             </div>
             </div>
         </div>
-        
+         <div class="ftr-container" v-motion-fade :initial="{ opacity: 0, y:100 }" :enter="{opacity: 1, y:0, transition: {type:'spring', stiffness: 100, damping:15, delay:200} }">
+        <footer>
+          <div class="ftr-link">
+              <a href="">Stock</a>
+              <a href="">Finance</a>
+              <a href="">Trade-in</a>
+              <a href="">Contact</a>
+              <a href="">About</a>
+              <a href="" class="social"><img src="../images/insta.png" alt="" width="50px"></a>
+              <a href="" class="social"><img src="../images/TikTok.png" alt="" width="50px"></a>
+          </div>
+        </footer>
+      </div>
     </div>
-   
 </template>
-<style>
-.vehicle-page-wrapper{
-    background-color: #000000;
-    
-}
+
+<style scoped>
+
 .slider{
    display: flex;
    justify-content: center;
@@ -258,31 +265,26 @@ export default {
 .img-box{
     display: flex;
     justify-content: center;
-    margin-left: 10px;
+    margin-left: 0.8rem;
     max-height: 400px;
     max-width: 900px;
 }
-    .img-box img{
-        width: 100% auto-fill;
-        height: 100% auto-fill;
-        
-        }
   
     #btn-left, #btn-right{
         position: relative;
         border:none;
         outline:none;
         background-color: transparent;
-        font-size: 100px;
-        color: #fff;
+        font-size: 8rem;
+        color: #fff9f9;
         cursor: pointer;
     } 
 
     #btn-left{
-        margin-right: -50px;
+        margin-right: -6rem;
     }
     #btn-right{
-        margin-left: -40px;
+        margin-left: -5rem;
     }
     
     
@@ -303,25 +305,31 @@ export default {
     .card-container{
        display: flex;
        flex-direction: row;
-       width: 50%;
+       width: 100%;
        animation: appear 5s linear;
        font-family: 'Roboto', sans-serif;
        padding:0;
+       background-color: #2c2a2a;
+    }
+     .car_details{
+        color: #c12424;
     }
     .detail_container{
         list-style: none;
         padding: 0;
         width: 100%;
         max-width: 400px;
-        color: #bababa;
+        color: #c12424;
         margin-left: 25px;
         flex-direction: row;
+        text-align: center;
     }
 
     .detail_container p, .detail_container h2{
         display: flex;
         justify-content: space-between;
         padding: 8px 0;
+        text-align: center;
     }
     .reg{
         align-items: center;
@@ -373,35 +381,17 @@ export default {
      .nav-toggle.active .bar:nth-child(3){
       transform: translateY(-8px) rotate(-45deg);
     }
-    .box-container .contact .ftr-link{
+    .ftr-link{
       width: 100%;
       background-size: cover;
     }
-  .box-container{
-    flex-wrap: wrap;
-  }
-  .day{
-    margin-right: 2px;
-  }
-.box-container iframe{
-      max-width: 300px;
-      max-height: 100%;
-      max-height: 300px;
-      margin-left: 20px;
-  }
-    .searchFilter form{
-      flex-wrap: wrap;
-    }
-    
-    .locationHead{
-      margin-left: 20%;
-    }
+
     .ftr-link a{
       margin-left: 5px;
       align-items: center;
       padding: 0%; 
     }
-    .contact .box-container .ftr-link{
+    .ftr-link{
       position: relative;
       background-size: 300px auto;
       width: 100%;
@@ -409,17 +399,7 @@ export default {
       transform: none;
       opacity: 1;
     }
-
-     .card-container {
-      flex: 0 50%;
-      height: auto;
-      min-height: 0;
-      overflow: hidden;
-      border-radius: 20px;
-    }
-    .card-container p{
-      padding-top: 30px;
-    }
+   
     .vehicleDetails{
       display: grid;
       grid-template-columns: repeat(3, 1fr);

@@ -228,6 +228,8 @@ export default {
   position: relative;
   background-image: url("../images/backgroundImg.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   mask-image: linear-gradient(to bottom, Black 95%, transparent 100%);
   padding-bottom: 10%;
 }
@@ -341,6 +343,9 @@ export default {
   margin-bottom: 5%;
   animation: headingMask linear both;
   animation-timeline: view();
+}
+.location-box{
+  margin-left: 16rem;
 }
 
 @keyframes headingMask {
@@ -461,8 +466,7 @@ export default {
 .openHours{
   display: flex;
   flex-direction: column;
-  width: 100%;
-  
+  width: 100%;  
   animation: appear 5s linear;
 }
 .opening{
@@ -480,7 +484,6 @@ export default {
 }
 .box-container{
   display: flex;
-
 animation: headingMask linear both;
   animation-timeline: view();
 }
@@ -509,7 +512,6 @@ animation: headingMask linear both;
   max-width: 500px;
   max-height:400px;
   border-radius: 8px;
-
 }
 
 .ftr-container{
@@ -548,7 +550,7 @@ animation: headingMask linear both;
       min-width: none;
     } 
     .hero-wrapper {
-    background-image: -moz-radial-gradient();
+    background-image: inherit;
     padding-bottom: 10%;
     }
  
