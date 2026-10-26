@@ -611,6 +611,7 @@ animation: headingMask linear both;
     }
     .openHours{
       margin: 0;
+      padding: 0.5rem;
     }
     .ftr-link{
       align-items: center;
