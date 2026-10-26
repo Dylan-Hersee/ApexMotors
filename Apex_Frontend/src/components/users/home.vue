@@ -344,9 +344,6 @@ export default {
   animation: headingMask linear both;
   animation-timeline: view();
 }
-.location-box{
-  margin-left: 16rem;
-}
 
 @keyframes headingMask {
   0%{
@@ -468,6 +465,7 @@ export default {
   flex-direction: column;
   width: 100%;  
   animation: appear 5s linear;
+  margin-right: 16rem;
 }
 .opening{
   list-style: none;
@@ -475,7 +473,7 @@ export default {
   width: 100%;
   max-width: 400px;
   color: #bababa;
-  margin-left: 25px;
+  margin-left: 16rem;
 }
 .opening li{
   display: flex;
@@ -597,19 +595,16 @@ animation: headingMask linear both;
   .day{
     margin-right: 2px;
   }
+ 
 .box-container iframe{
       max-width: 300px;
       max-height: 100%;
       max-height: 300px;
-      margin-left: 20px;
   }
     .searchFilter form{
       flex-wrap: wrap;
     }
     
-    .locationHead{
-      margin-left: 20%;
-    }
     .ftr-link a{
       margin-left: 5px;
       align-items: center;
@@ -643,6 +638,9 @@ animation: headingMask linear both;
     .vehicleDetails > *{
       margin: 0;
       line-height: 1.3;
+    }
+    .openHours{
+      margin: 0;
     }
     .ftr-link{
       align-items: center;
