@@ -557,7 +557,7 @@ animation: headingMask linear both;
       width: 100%;
       background-size: cover;
     }
-  .box-container{
+  .contact .box-container{
     flex-wrap: wrap;
   }
   .day{
@@ -578,7 +578,7 @@ animation: headingMask linear both;
       align-items: center;
       padding: 0%; 
     }
-    .box-container .ftr-link{
+    .contact .box-container .ftr-link{
       position: relative;
       width: 100%;
       animation: none;
@@ -613,7 +613,7 @@ animation: headingMask linear both;
       align-items: center;
     }
     .hours{
-      margin-right: 0.5rem;
+      margin-right: 0.7rem;
     }
     
    
