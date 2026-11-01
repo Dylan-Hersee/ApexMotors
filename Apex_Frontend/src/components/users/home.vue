@@ -132,14 +132,14 @@ export default {
         <div v-for="vehicle in vehicles" :key="vehicle.value" class="card-container" v-motion-fade>
           <router-link :to="{ path: `/vehicles/${vehicle.reg}`, state: { vehicle } }" class="router-link">
           <img 
-    v-if="vehicle.images && vehicle.images.length > 0"
-    :src="`https://apexmotors-7wrf.onrender.com${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
+          v-if="vehicle.images && vehicle.images.length > 0"
+          :src="`https://apexmotors-7wrf.onrender.com${vehicle.images[0].image_url}`" alt="Vehicle Image" width="100%"/>
           <div class="vehHeader"><h3>{{ vehicle.reg }}</h3></div>
           <div class="vehicleDetails">
-          <p>Make: <br> {{ vehicle.make }}</p>
-          <p>Model: <br> {{ vehicle.model }}</p>
-          <p>Year: <br>{{ vehicle.year }}</p>
-          <p>Milage: <br>{{ vehicle.milage }}</p>
+            <p>Make: <br> {{ vehicle.make }}</p>
+            <p>Model: <br> {{ vehicle.model }}</p>
+            <p>Year: <br>{{ vehicle.year }}</p>
+            <p>Milage: <br>{{ vehicle.milage }}</p>
           <p>Price: <br> {{ vehicle.price }}</p>
           </div>
           </router-link>
@@ -366,6 +366,7 @@ export default {
 
 
 }
+
 .contact h1{
   margin-bottom: 20px;
 }
@@ -378,24 +379,28 @@ export default {
   box-shadow: inset 5px 5px 15px 0 rgb(117, 114, 114);
   margin-bottom: 1rem;  
 }
-
+.contact-details{
+  padding-left: 10%;
+}
 
 #name{ 
-  width: 60%;
+  width: 25%;
+  max-width: 100px;
 }
 
 #phone{
-  width: 60%;
+  width: 25%;
+  max-width: 100px;
   margin-right: 5%;
 }
 #message{
   padding-bottom: 100px;
-  width: 100%;
+  width: 75%;
   margin-right: 5%;
 
 }
 #email{
-  width: 90%;
+  width: 100%;
   margin-right: 5%;
 }
 
@@ -460,6 +465,7 @@ export default {
   flex-direction: column;
   width: 100%;  
   animation: appear 5s linear;
+  margin-right: 50%;
 }
 .opening{
   list-style: none;
@@ -611,6 +617,18 @@ animation: headingMask linear both;
     }
     .hours{
       margin-right: 1rem;
+    }
+    #name{
+      width: 75%;
+    }
+    #phone{
+      width: 75%;
+    }
+    #message{
+      width: 100%;
+    }
+    .openHours h1{
+      padding-left: 20px;
     }
     
    

@@ -10,12 +10,15 @@ import Stock from '../components/users/Stock.vue'
 import Finance from '../components/users/Finance.vue'
 import testHome from '../components/testVueFiles/testHome.vue'
 import testVehicle from '../components/testVueFiles/testVehicles.vue'
+import Login from '../components/admin/login.vue'
+import Admin from '../components/testVueFiles/Admin.vue'
 
 
 const routes = [
   { path: '/', redirect: '/home'},
   { path: '/home', name: 'home', component: HomeView },
-  { path: '/admin', name: 'admin', component: AdminApp },
+  {path:'/admin/login', name: Login, component: Login },
+  { path: '/admin/home:user', name: 'admin', component: AdminApp },
   { path: '/vehicles/:reg', name: 'vehicles', component: Vehicles },
   { path: '/about', name: 'about', component: About }, 
   { path: '/trade-in', name: 'trade-in', component: TradeIn}, 
@@ -24,7 +27,8 @@ const routes = [
   { path: '/finance', name: 'finance', component: Finance},
   {path: '/test', name: 'testHome', component: testHome}, 
   {path: '/testVehicle/:reg', name: 'testVehicle', component: testVehicle},
-  {path: '/addVehicle', name:'addVehicle', component:AddVehicle }
+  {path: '/addVehicle', name:'addVehicle', component:AddVehicle }, 
+  {path: '/Admin', name: 'Admin', component: Admin}
 ]
 
 const router = createRouter({
