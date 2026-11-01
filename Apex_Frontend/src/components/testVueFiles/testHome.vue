@@ -459,11 +459,12 @@ export default {
 }
 .opening{
   list-style: none;
-  padding: 0;
+  padding-right: 100px;
   width: 100%;
   max-width: 400px;
   color: #bababa;
   margin-left: 25px;
+
 }
 .opening li{
   display: flex;

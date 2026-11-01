@@ -172,13 +172,13 @@ export default {
       <div class="openHours">
         <h1>Opening Hours</h1>
         <ul class="opening">
-          <li><span class="day">Monday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Tuesday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Wednesday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Thursday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Friday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Saturday</span><span class="hours"> By Appointment Only</span></li>
-          <li><span class="day">Sunday</span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Monday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Tuesday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Wednesday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Thursday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Friday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Saturday: </span><span class="hours"> By Appointment Only</span></li>
+          <li><span class="day">Sunday: </span><span class="hours"> By Appointment Only</span></li>
         </ul>
       </div>
       <div class="location-box" v-motion-fade>
@@ -451,6 +451,7 @@ export default {
   animation: appear linear;
   animation-timeline: view();
 }
+
 .contact-details{
   color: #d5d5d5;
   animation: appear linear;
@@ -469,15 +470,20 @@ export default {
 }
 .opening{
   list-style: none;
-  padding: 0;
+  padding-right: 100px;
   width: 100%;
   max-width: 400px;
   color: #bababa;
 }
 .opening li{
   display: flex;
-  justify-content: space-between;
-  padding: 4px 0;
+  justify-content: space-around;
+  padding: 10px;
+  width: 100%;
+}
+.hours{
+  padding-left: 1rem;
+
 }
 .box-container{
   display: flex;
